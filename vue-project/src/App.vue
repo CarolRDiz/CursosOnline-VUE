@@ -1,3 +1,61 @@
+<script>
+import Home from './Home.vue'
+import About from './About.vue'
+import Profile from './Profile.vue'
+import NotFound from './NotFound.vue'
+import Header from './components/Header.vue'
+//ROUTING
+const routes = {
+  '/': Home,
+  '/about': About,
+  '/profile': Profile
+}
+
+export default {
+  name: 'App',
+  components: {
+    Header,
+  },
+  data() {
+    return {
+      currentPath: window.location.hash
+    }
+  },
+  computed: {
+    currentView() {
+      return routes[this.currentPath.slice(1) || '/'] || NotFound
+    }
+  },
+  mounted() {
+    window.addEventListener('hashchange', () => {
+		  this.currentPath = window.location.hash
+		})
+  }
+}
+//
+</script>
+
+<template>
+  <Header title="Header"/>
+  <h1>App.vue</h1>
+  <a href="#/">Home</a> |
+  <a href="#/about">About</a> |
+  <a href="#/profile">Profile</a> |
+  <a href="#/non-existent-path">Broken Link</a>
+  <component :is="currentView" />
+</template>
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
@@ -45,3 +103,5 @@ header {
   }
 }
 </style>
+
+-->
