@@ -1,10 +1,23 @@
+<template>
+  <Header/>
+  <h1>App.vue</h1>
+  <a href="#/">Home</a> |
+  <a href="#/about">About</a> |
+  <a href="#/profile">Profile</a> |
+  <a href="#/non-existent-path">Broken Link</a>
+  <Courses @delete-course="deleteCourse"
+  :courses="courses" />
+  <component :is="currentView" />
+</template>
+
 <script>
 import Home from './Home.vue'
 import About from './About.vue'
 import Profile from './Profile.vue'
 import NotFound from './NotFound.vue'
 import Header from './components/Header.vue'
-//ROUTING
+import Courses from './components/Courses.vue'
+
 const routes = {
   '/': Home,
   '/about': About,
@@ -15,11 +28,42 @@ export default {
   name: 'App',
   components: {
     Header,
+    Courses,
   },
   data() {
     return {
-      currentPath: window.location.hash
+      currentPath: window.location.hash,
+      courses:[],
     }
+  },
+  methods:{
+    deleteCourse(id){
+      if(confirm('Are you sure?')){
+        this.courses = this.courses.filter((course) => course.id !== id)
+      }
+    }
+  },
+  created(){
+    this.courses=[
+      {
+        id:1,
+        text: 'Course1',
+        duration: 3,
+        subtitle: true
+      },
+      {
+        id:2,
+        text: 'Course2',
+        duration: 2,
+        subtitle: false
+      },
+      {
+        id:3,
+        text: 'Course3',
+        duration: 1,
+        subtitle: true
+      },
+    ]
   },
   computed: {
     currentView() {
@@ -35,15 +79,7 @@ export default {
 //
 </script>
 
-<template>
-  <Header title="Header"/>
-  <h1>App.vue</h1>
-  <a href="#/">Home</a> |
-  <a href="#/about">About</a> |
-  <a href="#/profile">Profile</a> |
-  <a href="#/non-existent-path">Broken Link</a>
-  <component :is="currentView" />
-</template>
+
 
 
 
