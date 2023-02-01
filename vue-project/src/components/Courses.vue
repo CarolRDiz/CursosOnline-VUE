@@ -16,7 +16,7 @@
     export default {
         name: 'Courses',
         props: {
-            courses: Array,
+            courses: Object,
         },
         components:{
             Course,

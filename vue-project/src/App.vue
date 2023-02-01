@@ -5,8 +5,9 @@
   <a href="#/about">About</a> |
   <a href="#/profile">Profile</a> |
   <a href="#/non-existent-path">Broken Link</a>
+  <Filters />
   <Courses @delete-course="deleteCourse"
-  :courses="courses" />
+  :courses="coursesList" />
   <component :is="currentView" />
 </template>
 
@@ -17,7 +18,7 @@ import Profile from './Profile.vue'
 import NotFound from './NotFound.vue'
 import Header from './components/Header.vue'
 import Courses from './components/Courses.vue'
-
+import Filters from './components/Filters.vue'
 const routes = {
   '/': Home,
   '/about': About,
@@ -29,6 +30,7 @@ export default {
   components: {
     Header,
     Courses,
+    Filters,
   },
   data() {
     return {
@@ -41,10 +43,16 @@ export default {
       if(confirm('Are you sure?')){
         this.courses = this.courses.filter((course) => course.id !== id)
       }
+    },
+    async fetchCourses(){
+      const res = await fetch('http://localhost:3001/api/v1/productos')
+      const data = await res.json()
+      return data
     }
   },
-  created(){
-    this.courses=[
+  async created(){
+    this.courses = await this.fetchCourses()
+    /*[
       {
         id:1,
         text: 'Course1',
@@ -64,11 +72,15 @@ export default {
         subtitle: true
       },
     ]
+    */
   },
   computed: {
     currentView() {
       return routes[this.currentPath.slice(1) || '/'] || NotFound
-    }
+    },
+    coursesList (){
+      return this.courses
+    },
   },
   mounted() {
     window.addEventListener('hashchange', () => {
