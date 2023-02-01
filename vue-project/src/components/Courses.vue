@@ -3,7 +3,7 @@
        <li 
        :key="course.id" 
        v-for="course in courses" 
-       :class="[course.subtitle?'subtitle-true': '']">
+       :class="[course.subtitle?'course subtitle-true': 'course']">
             <Course @delete-course="$emit('delete-course', course.id)"
             :course="course" />
         </li> 
@@ -26,6 +26,10 @@
 </script>
 
 <style>
+.course{
+    background-color: rgb(213, 213, 213);
+    max-width: 600px;
+}
 .subtitle-true{
     background-color:rgb(178, 255, 175);
 }

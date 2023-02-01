@@ -1,48 +1,40 @@
 <template>
-  <Header/>
-  <h1>App.vue</h1>
-  <a href="#/">Home</a> |
-  <a href="#/about">About</a> |
-  <a href="#/profile">Profile</a> |
-  <a href="#/non-existent-path">Broken Link</a>
-  <Filters />
-  <Courses @delete-course="deleteCourse"
+  <Header @search-filter="this.searchValue=$event"/>
+  <!--<Courses @delete-course="deleteCourse" v-if="coursesList.length"
   :courses="coursesList" />
-  <component :is="currentView" />
+  <div v-else>No se han encontrado cursos para esta búsqueda: {{ searchValue }}.</div>
+  -->
+  <div>
+      <RouterView />
+  </div>
 </template>
 
 <script>
-import Home from './Home.vue'
-import About from './About.vue'
-import Profile from './Profile.vue'
-import NotFound from './NotFound.vue'
 import Header from './components/Header.vue'
 import Courses from './components/Courses.vue'
-import Filters from './components/Filters.vue'
-const routes = {
-  '/': Home,
-  '/about': About,
-  '/profile': Profile
-}
 
 export default {
   name: 'App',
   components: {
     Header,
     Courses,
-    Filters,
   },
+
   data() {
     return {
-      currentPath: window.location.hash,
       courses:[],
+      searchValue:''
     }
   },
+
   methods:{
     deleteCourse(id){
       if(confirm('Are you sure?')){
         this.courses = this.courses.filter((course) => course.id !== id)
       }
+    },
+    algo(searchValue){
+      console.log(searchValue)
     },
     async fetchCourses(){
       const res = await fetch('http://localhost:3001/api/v1/productos')
@@ -50,45 +42,31 @@ export default {
       return data
     }
   },
+
   async created(){
-    this.courses = await this.fetchCourses()
-    /*[
-      {
-        id:1,
-        text: 'Course1',
-        duration: 3,
-        subtitle: true
-      },
-      {
-        id:2,
-        text: 'Course2',
-        duration: 2,
-        subtitle: false
-      },
-      {
-        id:3,
-        text: 'Course3',
-        duration: 1,
-        subtitle: true
-      },
-    ]
-    */
+    this.courses = Object.values(await this.fetchCourses())
+    console.log(this.courses)
   },
+
   computed: {
-    currentView() {
-      return routes[this.currentPath.slice(1) || '/'] || NotFound
-    },
+    // currentView() {
+    //   return routes[this.currentPath.slice(1) || '/'] || NotFound
+    // },
     coursesList (){
+      // SEARCH FILTER
+      if(this.searchValue.trim().length > 0){
+        return this.courses.filter((course) => course.title.toLowerCase().includes(this.searchValue.trim().toLowerCase()))
+      }
       return this.courses
     },
   },
-  mounted() {
-    window.addEventListener('hashchange', () => {
-		  this.currentPath = window.location.hash
-		})
-  }
+
+  // mounted() {
+  //   window.addEventListener('hashchange', () => {
+	// 	  this.currentPath = window.location.hash
+	// 	})
+  // }
 }
-//
 </script>
 
 
