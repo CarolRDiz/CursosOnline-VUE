@@ -29,3 +29,6 @@ npm run build
 ```
 
 npm install vue-router@4
+npm install --save axios vue-axios
+npm install --save cross-fetch
+npm i js-cookie

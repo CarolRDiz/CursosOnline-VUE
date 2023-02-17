@@ -1,9 +1,17 @@
 <template>
-  HOME
+  <div>
+     <Courses />
+  </div>
 </template>
 <script>
-  export default {
+import {mapState, mapGetters, mapActions} from "vuex"
+import Courses from "../components/Courses.vue"
+export default {
   name: 'Home',
-  }
+
+  components:{
+    Courses
+  },
+}
 </script>
 

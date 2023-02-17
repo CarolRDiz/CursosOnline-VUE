@@ -1,5 +1,7 @@
 <template>
-    
+    <input v-model="searchValue"
+            type="text"
+            placeholder="Buscar..."/>
 </template>
 <script>
     export default {

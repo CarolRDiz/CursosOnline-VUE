@@ -21,18 +21,26 @@
             }
         },
         emits: ['search-filter'],
+        
     }
 </script>
 <template>
     <header>
         <h1>Cursos de música</h1>
         <TheNavigation />
-        <Button text="Add Course" color="yellow"/>
+        <SearchBar />
+        <!-- <Button text="Add Course" color="yellow"/>
         <Button text="Update Course" color="blue"/>
-        <Button text="Delete Course" color="red"/>
-        <input v-model="searchValue"
-            type="text"
-            placeholder="Buscar..."/>
+        <Button text="Delete Course" color="red"/> -->
+        
         <!--<SearchBar @search-filter="$emit('search-filter')"/>-->
     </header>
 </template>
+<style>
+    header{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: orange;
+    }
+</style>
