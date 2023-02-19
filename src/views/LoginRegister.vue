@@ -19,22 +19,7 @@ export default {
         }),
     },
     async mounted() {
-        // this.isLoading = true;
-        // try {
-        //     const response = await fetch('http://localhost:3001/api/v1/users/login', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         credentials: 'include',
-        //     })
-        //     if(response.data){this.user = response.data.userData}
-            
-        // } catch (error) {
-        //     console.error(error.message);
-        // } finally {
-        //     this.isLoading = false;
-        // }
+
     },
     methods: {
         ...mapActions('user', {

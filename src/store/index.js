@@ -12,7 +12,7 @@ const store = createStore({
     },
     state () { //data
       return{
-        fetchImageURL: "http://localhost:3001/api/v1/images/"
+        fetchImageURL: "https://api-node.up.railway.app/api/v1/images/"
       }
     },
     getters:{ // = computed

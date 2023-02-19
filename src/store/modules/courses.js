@@ -3,8 +3,6 @@ export default {
     state() { //data
         return {
             items: [],
-            //{id, quantity}
-            //fetchImageURL: "http://localhost:3001/api/v1/images/"
         }
     },
     getters: { // = computed
@@ -19,7 +17,7 @@ export default {
     },
     actions: {
         async fetchCourses({ commit }) {
-            const res = await fetch('http://localhost:3001/api/v1/productos/', {
+            const res = await fetch('https://api-node.up.railway.app/api/v1/productos/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

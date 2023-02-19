@@ -41,7 +41,7 @@ export default{
             }
         },
         async addCoursesToUser({ state, commit }) {
-            const res = await fetch('http://localhost:3001/api/v1/users/user/courses', {
+            const res = await fetch('https://api-node.up.railway.app/api/v1/users/user/courses', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

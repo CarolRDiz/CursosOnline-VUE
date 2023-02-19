@@ -48,6 +48,6 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        background-color: orange;
+        background-color: rgb(107, 255, 240);
     }
 </style>

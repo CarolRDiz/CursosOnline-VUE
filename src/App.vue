@@ -40,7 +40,7 @@ export default {
       console.log(searchValue)
     },
     async fetchCourses() {
-      const res = await fetch('http://localhost:3001/api/v1/productos')
+      const res = await fetch('https://api-node.up.railway.app/api/v1/productos')
       const data = await res.json()
       return data
     }
