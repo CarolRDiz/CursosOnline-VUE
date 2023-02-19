@@ -40,9 +40,20 @@ export default{
                 //context.commit("incrementItemQuantity",{root})
             }
         },
-        checkout({state,commit}){
-            commit("emptyCart")
-            commit("setCheckoutStatus", "success")
+        async addCoursesToUser({ state, commit }) {
+            const res = await fetch('http://localhost:3001/api/v1/users/user/courses', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                body: JSON.stringify({
+                    courses: state.items
+                })
+            })
+            console.log("addCoursesToUser hecho")
+            await commit("emptyCart")
+            await commit("setCheckoutStatus", "success")
             //commit("setCheckoutStatus", "fail")
         },
     }

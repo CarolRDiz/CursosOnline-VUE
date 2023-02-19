@@ -34,6 +34,9 @@ export default {
         ...mapActions('cart', {
             addCourseToCart: "addCourseToCart"
         }),
+        fetchImg(image){
+            return this.fetchImageURL+image
+        }
     },
 }
 </script>
@@ -45,7 +48,7 @@ export default {
             <section class="courses">
                 <article v-if="courses" v-for="course in courses" :key="course.id" class="courses__course">
                     <RouterLink :to="{ name: 'course.show', params: { id: course.id, title: course.title } }">
-                        <img :src=fetchImageURL+course.image alt="" class="courses__img">
+                        <img :src=fetchImg(course.image) alt="" class="courses__img">
                     </RouterLink>
                     <section class="courses__content">
                         <RouterLink :to="{ name: 'course.show', params: { id: course.id, title: course.title } }">
@@ -58,7 +61,6 @@ export default {
                                 Añadir al carrito {{ course.price }}€
                         </button>
                     </section>
-                    
                 </article>
             </section>
         </article>

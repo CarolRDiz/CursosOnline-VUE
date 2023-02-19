@@ -6,6 +6,7 @@ export default {
         return {
             isLogin: true,
             loading: false,
+            name:'',
             email: null,
             password: null,
             repetpassword: '',
@@ -14,6 +15,7 @@ export default {
     computed:{
         ...mapState('user', {
             user: state => state.userData,
+            message: state => state.message,
         }),
     },
     async mounted() {
@@ -38,62 +40,21 @@ export default {
         ...mapActions('user', {
             fetchUser: "fetchUser",
             doLogin: "doLogin",
-            logout: "logout"
+            logout: "logout",
+            doRegister: "doRegister"
         }),
-        // async logout(){
-        //     this.isLoading = true;
-        //     try {
-        //         const res = await fetch('http://localhost:3001/api/v1/users/logout', {
-        //             method: 'DELETE',
-        //             credentials: 'include',
-        //         })
-        //         const data = await res.json()
-        //         console.log(data)
-        //     }
-        //      catch (error) {
-        //         //console.error(error.message);
-        //     } finally {
-        //         this.isLoading = false;
-        //         this.resetData()
-        //     }
-        // },
-        redirect() {
-            this.$router.push({ name: "Home" });
-        },
         resetData() {
             this.email = this.password = '';
         },
-        
-            
-        
-        // async doRegister() {
-        //     this.isLoading = true;
-        //     try {
-        //     await this.$store.dispatch("user/doRegister", {
-        //         email: this.userData.email,
-        //         password: this.userData.password,
-        //         repeatpassword: this.userData.repeatpassword
-        //     });
-        //     console.log("Registered");
-        //     this.resetData();
-        //     this.redirect();
-        //     } catch (error) {
-        //     console.error(error.message);
-        //     } finally {
-        //     this.isLoading = false;
-        //     }
-        // },
     },
 };
 
 </script>
 <template>
     <article>
-        {{ user }}
-        <button @click="logout(), resetData()">Cerrar sesión</button>
         <button @click="isLogin = true">Iniciar sesión</button>
         <button @click="isLogin = false">Registrarse</button>
-        <form v-if="isLogin" @submit.prevent="doLogin({inputEmail: this.email, inputPassword: this.password})">
+        <form v-if="isLogin" @submit.prevent="doLogin({ inputEmail: this.email, inputPassword: this.password})">
             <fieldset>
                 <legend>Datos personales</legend>
                 <label for="email">Correo electrónico:</label>
@@ -104,9 +65,16 @@ export default {
             <button type="submit">Iniciar sesión</button>
         </form>
 
-        <form v-else>
+        <form v-else @submit.prevent="doRegister({ inputName:this.name, inputEmail: this.email, inputPassword: this.password})">
             <fieldset>
                 <legend>Datos personales</legend>
+                <label for="name">Nombre:</label>
+                <input 
+                    name="name"
+                    v-model="name"
+                    type="text"
+                    required
+                />
                 <label for="email">Correo electrónico:</label>
                 <input 
                     name="email"
@@ -125,12 +93,12 @@ export default {
                 <input
                     name="repetpassword"
                     v-model="repetpassword"
-                    type="repetpassword"
+                    type="password"
                     required
                 />
             </fieldset>
             <input type="submit" value="Registrarse"/>
         </form>    
-
+        <span v-if="message"> {{ message }}</span>
     </article>
 </template>

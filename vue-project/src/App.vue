@@ -1,16 +1,17 @@
 <template>
-  <Header @search-filter="this.searchValue=$event"/>
+  <Header @search-filter="this.searchValue = $event" />
   <!--<Courses @delete-course="deleteCourse" v-if="coursesList.length"
-  :courses="coursesList" />
-  <div v-else>No se han encontrado cursos para esta búsqueda: {{ searchValue }}.</div>
-  -->
+    :courses="coursesList" />
+    <div v-else>No se han encontrado cursos para esta búsqueda: {{ searchValue }}.</div>
+    -->
   <main>
-      <RouterView :key="$route.path"/>
+    <RouterView :key="$route.path" />
   </main>
 </template>
 
 <script>
 import Header from './components/Header.vue'
+import { mapState, mapGetters, mapActions } from "vuex"
 
 export default {
   name: 'App',
@@ -20,39 +21,44 @@ export default {
 
   data() {
     return {
-      courses:[],
-      searchValue:''
+      courses: [],
+      searchValue: ''
     }
   },
 
-  methods:{
-    deleteCourse(id){
-      if(confirm('Are you sure?')){
+  methods: {
+    ...mapActions('user', {
+      localStorageUser: "localStorageUser",
+    }),
+
+    deleteCourse(id) {
+      if (confirm('Are you sure?')) {
         this.courses = this.courses.filter((course) => course.id !== id)
       }
     },
-    algo(searchValue){
+    algo(searchValue) {
       console.log(searchValue)
     },
-    async fetchCourses(){
+    async fetchCourses() {
       const res = await fetch('http://localhost:3001/api/v1/productos')
       const data = await res.json()
       return data
     }
   },
 
-  async created(){
+  async created() {
     this.courses = Object.values(await this.fetchCourses())
     console.log(this.courses)
+    this.localStorageUser()
   },
 
   computed: {
     // currentView() {
     //   return routes[this.currentPath.slice(1) || '/'] || NotFound
     // },
-    coursesList (){
+    coursesList() {
       // SEARCH FILTER
-      if(this.searchValue.trim().length > 0){
+      if (this.searchValue.trim().length > 0) {
         return this.courses.filter((course) => course.title.toLowerCase().includes(this.searchValue.trim().toLowerCase()))
       }
       return this.courses
@@ -61,25 +67,27 @@ export default {
 
   // mounted() {
   //   window.addEventListener('hashchange', () => {
-	// 	  this.currentPath = window.location.hash
-	// 	})
+  // 	  this.currentPath = window.location.hash
+  // 	})
   // }
 }
 </script>
 <style>
-h1{
+h1 {
   font-size: 40px;
 }
-*{
+
+* {
   font-size: 18px;
   box-sizing: border-box;
 }
-main{
+
+main {
   background-color: rgb(221, 221, 221);
   padding: 30px;
 }
-ul{
+
+ul {
   padding: 0;
-  list-style-type:none;
-}
-</style>
+  list-style-type: none;
+}</style>

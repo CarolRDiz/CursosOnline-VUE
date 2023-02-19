@@ -22,7 +22,7 @@
             // }
         },
         methods: {
-            ...mapActions('cart',["checkout"])
+            ...mapActions('cart',["addCoursesToUser"])
         }
     }
 </script>
@@ -36,7 +36,7 @@
             </li>
         </ul>
         <p>Total: {{ total }}</p>
-        <button @click="checkout">Checkout</button>
+        <button @click="addCoursesToUser">Comprar</button>
         <p v-if="checkoutStatus">{{ checkoutStatus }}</p>
     </div>
 </template>
