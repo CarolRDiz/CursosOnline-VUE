@@ -21,21 +21,10 @@ export default {
         ...mapState('user', {
             purchases: state => state.userData.courses
         }),
-        // ...mapState('courses', {
-        //     courses: state => state.items,
-            
-        // }),
-
         ...mapGetters('courses', {
             subtitleCourses: "subtitledCourses",
         })
     },
-
-    // async created() {
-    //     this.loading = true;
-    //     await this.fetchCourses()
-    //         .then(() => this.loading = false);
-    // },
 
     methods: {
         ...mapActions('courses', {

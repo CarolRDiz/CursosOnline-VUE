@@ -1,9 +1,6 @@
 <template>
   <Header @search-filter="this.searchValue = $event" />
-  <!--<Courses @delete-course="deleteCourse" v-if="coursesList.length"
-    :courses="coursesList" />
-    <div v-else>No se han encontrado cursos para esta búsqueda: {{ searchValue }}.</div>
-    -->
+
   <main>
     <RouterView :key="$route.path" />
   </main>
@@ -12,7 +9,7 @@
 <script>
 import Header from './components/Header.vue'
 import { mapState, mapGetters, mapActions } from "vuex"
-// import { auth } from "./firebase"
+
 
 export default {
   name: 'App',
@@ -25,10 +22,6 @@ export default {
       courses: [],
       searchValue: ''
     }
-  },
-  mounted() {
-    // const VUE_APP_ROOT_API = process.env.VUE_APP_ROOT_API;
-    // console.log(VUE_APP_ROOT_API)
   },
   methods: {
     ...mapActions('user', {
@@ -57,23 +50,14 @@ export default {
   },
 
   computed: {
-    // currentView() {
-    //   return routes[this.currentPath.slice(1) || '/'] || NotFound
+    // coursesList() {
+    //   // SEARCH FILTER
+    //   if (this.searchValue.trim().length > 0) {
+    //     return this.courses.filter((course) => course.title.toLowerCase().includes(this.searchValue.trim().toLowerCase()))
+    //   }
+    //   return this.courses
     // },
-    coursesList() {
-      // SEARCH FILTER
-      if (this.searchValue.trim().length > 0) {
-        return this.courses.filter((course) => course.title.toLowerCase().includes(this.searchValue.trim().toLowerCase()))
-      }
-      return this.courses
-    },
   },
-
-  // mounted() {
-  //   window.addEventListener('hashchange', () => {
-  // 	  this.currentPath = window.location.hash
-  // 	})
-  // }
 }
 </script>
 <style>

@@ -38,6 +38,3 @@
         <!--<SearchBar @search-filter="$emit('search-filter')"/>-->
     </header>
 </template>
-<style>
-    
-</style>

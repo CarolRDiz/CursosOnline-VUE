@@ -118,10 +118,6 @@ export default {
         <div v-else>
             <h1 v-if="isLogin">Iniciar sesión</h1>
             <h1 v-if="!isLogin">Registrarse</h1>
-            <!-- <div class="auth__options">
-                    <button class="auth__option" :class="{'auth__option--active':isLogin }" @click="isLogin = true">Iniciar sesión</button>
-                    <button class="auth__option" :class="{'auth__option--active':!isLogin }" @click="isLogin = false">Registrarse</button>
-                </div> -->
             <p v-if="errors.length">
                 <b>Por favor, corrija el(los) siguiente(s) error(es):</b>
                 <ul>

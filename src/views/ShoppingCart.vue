@@ -16,19 +16,13 @@ export default {
             checkoutStatus: state => state.checkoutStatus,
             cartCoursesId: state => state.items
         }),
-        // ...mapState('courses',{
-        // }),
+
         ...mapGetters('cart', {
             courses: "cartCourses",
             total: "cartTotal",
             count: "cartCount"
         }),
-        // courses () {
-        //     return this.$store.getters.cartCourses
-        // },
-        // total () {
-        //     return this.$store.getters.cartTotal
-        // }
+
         ...mapState({
             fetchImageURL: state => state.fetchImageURL
         }),

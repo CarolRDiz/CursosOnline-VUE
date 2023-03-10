@@ -7,9 +7,6 @@ export default {
     components: {
         GoBack, Modal
     },
-    props: {
-        //id: {type: Number, required: true}
-    },
     data() {
         return {
             course: null,

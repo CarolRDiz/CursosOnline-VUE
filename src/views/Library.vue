@@ -14,9 +14,6 @@ export default {
         ...mapState('user', {
             userCourses: state => state.userData.courses,
         }),
-        // ...mapState('courses', {
-        //     courses: state => state.items,
-        // }),
         ...mapGetters('user', {
             courses: "userCourses",
         }),
@@ -32,23 +29,6 @@ export default {
         ...mapActions('courses', {
             fetchCourses: "fetchCourses",
         }),
-        // getCoursesPurchased(){
-        //     console.log("GET PURCHASES")
-        //     return this.userCourses.map(userCourse => {
-        //         console.log(this.courses)
-        //         const course = this.courses.find(course => course.id === userCourse)
-        //         return {
-        //             id: course.id,
-        //             title: course.title,
-        //             author: course.author,
-        //             price: course.price,
-        //             duration: course.duration,
-        //             language: course.language,
-        //             subtitle: course.subtitle,
-        //             image: course.image
-        //         }
-        //     })
-        // }
     },
     async created() {
         await this.localStorageUser()
