@@ -1,41 +1,61 @@
 <script>
 import { mapState, mapGetters, mapActions } from "vuex"
+import Modal from "./Modal.vue"
 export default {
     name: "Courses",
+    props: ["courses"],
+    components: {Modal},
     data() {
         return {
             loading: false,
+            modalActive: false,
         }
     },
     computed: {
         ...mapState({
             fetchImageURL: state => state.fetchImageURL
         }),
-        ...mapState('courses', {
-            courses: state => state.items,
-            
+        ...mapState('cart', {
+            cart: state => state.items
         }),
+        ...mapState('user', {
+            purchases: state => state.userData.courses
+        }),
+        // ...mapState('courses', {
+        //     courses: state => state.items,
+            
+        // }),
 
         ...mapGetters('courses', {
             subtitleCourses: "subtitledCourses",
         })
     },
 
-    async created() {
-        this.loading = true;
-        await this.fetchCourses()
-            .then(() => this.loading = false);
-    },
+    // async created() {
+    //     this.loading = true;
+    //     await this.fetchCourses()
+    //         .then(() => this.loading = false);
+    // },
 
     methods: {
         ...mapActions('courses', {
             fetchCourses: "fetchCourses",
         }),
         ...mapActions('cart', {
-            addCourseToCart: "addCourseToCart"
+            addCourseToCart: "addCourseToCart",
+            eliminateCourseInCart: "eliminateCourseInCart"
         }),
         fetchImg(image){
             return this.fetchImageURL+image
+        },
+        toggleModal(){
+            this.modalActive = !this.modalActive;
+        },
+        checkCourseInCart(courseID){
+            return this.cart.includes(courseID)
+        },
+        checkCoursePurchased(courseID){
+            return this.purchases.includes(courseID)
         }
     },
 }
@@ -47,48 +67,37 @@ export default {
             <h2>Courses</h2>
             <section class="courses">
                 <article v-if="courses" v-for="course in courses" :key="course.id" class="courses__course">
-                    <RouterLink :to="{ name: 'course.show', params: { id: course.id, title: course.title } }">
-                        <img :src=fetchImg(course.image) alt="" class="courses__img">
+                    <RouterLink class="course__routerLink" :to="{ name: 'course.show', params: { id: course.id, title: course.title } }">
+                        <img :src=fetchImg(course.image) alt="" class="course__img">
                     </RouterLink>
-                    <section class="courses__content">
-                        <RouterLink :to="{ name: 'course.show', params: { id: course.id, title: course.title } }">
+                    <section class="course__content">
+                        <RouterLink class="course__link" :to="{ name: 'course.show', params: { id: course.id, title: course.title } }">
                             <h3>{{ course.title }}</h3>
                         </RouterLink>
                         <span>Un curso de {{ course.author }}</span>
                         <span>Duración: {{ course.duration }}</span>
-                        <button @click="addCourseToCart(course)"
+
+                        <span class="course__purchased" v-if="checkCoursePurchased(course.id)">Comprado</span>
+                        <button v-if="!checkCourseInCart(course.id)&&!checkCoursePurchased(course.id)" @click="addCourseToCart(course), toggleModal()" 
                             class="button--large">
-                                Añadir al carrito {{ course.price }}€
+                            <img class="icon" src="../assets/img/anadir-a-la-cesta.png" alt="">
+                            Añadir al carrito 
+                            <span>{{ course.price }}€</span>
+                        </button>
+                        <button v-if="checkCourseInCart(course.id)&&!checkCoursePurchased(course.id)" @click="eliminateCourseInCart(course.id)"
+                            class="button--large">
+                            <img  class="item__delete icon click" src="../assets/img/x-mark.png"
+                            alt="">  Quitar del carrito
                         </button>
                     </section>
                 </article>
             </section>
         </article>
+        <Modal @close="toggleModal" :modalActive="modalActive">
+            <div class="modal--addToCart">
+                <h1>Curso añadido a la cesta</h1>
+                <img class="icon--large" src="../assets/img/anadir-a-la-cesta.png" alt="">
+            </div>
+        </Modal>
     </div>
 </template>
-<style>
-.courses__img {
-    width: 100%;
-}
-.courses{
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 50px;
-    row-gap: 50px;
-}
-.courses__course{
-    background-color: white;
-    width: 100%;
-    max-width: 400px;
-    padding-bottom: 10px;
-}
-.courses__content {
-    padding: 0 10px 0 10px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-}
-.button--large{
-    width: 100%;
-}
-</style>

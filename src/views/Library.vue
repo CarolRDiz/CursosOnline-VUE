@@ -3,32 +3,71 @@ import { mapState, mapGetters, mapActions } from "vuex"
 export default {
     name: "Library",
 
+    data() {
+    return {
+      coursesPurchased: [],
+    }},
     computed: {
         ...mapState({
             fetchImageURL: state => state.fetchImageURL
         }),
+        ...mapState('user', {
+            userCourses: state => state.userData.courses,
+        }),
+        // ...mapState('courses', {
+        //     courses: state => state.items,
+        // }),
         ...mapGetters('user', {
             courses: "userCourses",
         }),
+
     },
     methods: {
         fetchImg(image){
             return this.fetchImageURL+image
-        }
+        },
+        ...mapActions('user', {
+            localStorageUser: "localStorageUser",
+        }),
+        ...mapActions('courses', {
+            fetchCourses: "fetchCourses",
+        }),
+        // getCoursesPurchased(){
+        //     console.log("GET PURCHASES")
+        //     return this.userCourses.map(userCourse => {
+        //         console.log(this.courses)
+        //         const course = this.courses.find(course => course.id === userCourse)
+        //         return {
+        //             id: course.id,
+        //             title: course.title,
+        //             author: course.author,
+        //             price: course.price,
+        //             duration: course.duration,
+        //             language: course.language,
+        //             subtitle: course.subtitle,
+        //             image: course.image
+        //         }
+        //     })
+        // }
+    },
+    async created() {
+        await this.localStorageUser()
+        await this.fetchCourses()
+        .then(() => this.loading = false);
     }
 }
 </script>
 <template>
-    <div>
+    <div class="main__library">
         <h1>Biblioteca</h1>
         <h2>Todos tus cursos</h2>
         <section class="courses">
             <article v-if="courses" v-for="course in courses" :key="course.id" class="courses__course">
-                <RouterLink :to="{ name: 'course.show', params: { id: course.id, title: course.title } }">
-                    <img :src=fetchImg(course.image) alt="" class="courses__img">
+                <RouterLink class="course__routerLink" :to="{ name: 'course.show', params: { id: course.id, title: course.title } }">
+                    <img :src=fetchImg(course.image) alt="" class="course__img">
                 </RouterLink>
-                <section class="courses__content">
-                    <RouterLink :to="{ name: 'course.show', params: { id: course.id, title: course.title } }">
+                <section class="course__content">
+                    <RouterLink class="course__link" :to="{ name: 'course.show', params: { id: course.id, title: course.title } }">
                         <h3>{{ course.title }}</h3>
                     </RouterLink>
                     <span>Un curso de {{ course.author }}</span>
@@ -42,27 +81,9 @@ export default {
     </div>
 </template>
 <style>
-.cart__list {
-    background-color: white;
+.main__library{
     display: flex;
     flex-direction: column;
-    list-style-type: none;
-    row-gap: 10px;
-    padding: 0;
-}
-
-.cart__item {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    column-gap: 10px;
-}
-
-.cart__item:hover {
-    background-color: rgb(217, 217, 217);
-}
-
-.item__price {
-    color: red;
+    row-gap: 20px;
 }
 </style>

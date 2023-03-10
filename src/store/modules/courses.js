@@ -9,6 +9,9 @@ export default {
         subtitledCourses(state) {
             return state.items.filter(course => course.subtitle == true)
         },
+        courses(state) {
+            return state.items
+        },
     },
     mutations: {
         setCourses(state, coursesData) {

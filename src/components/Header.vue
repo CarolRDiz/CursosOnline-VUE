@@ -34,20 +34,10 @@
     <header>
         <h1>Cursos de música</h1>
         <TheNavigation />
-        <SearchBar />
         <RouterLink v-if="user" to="/profile">{{ this.user.name }}</RouterLink>
-        <!-- <Button text="Add Course" color="yellow"/>
-        <Button text="Update Course" color="blue"/>
-        <Button text="Delete Course" color="red"/> -->
-        
         <!--<SearchBar @search-filter="$emit('search-filter')"/>-->
     </header>
 </template>
 <style>
-    header{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        background-color: rgb(107, 255, 240);
-    }
+    
 </style>

@@ -15,10 +15,13 @@ export default{
 </script>
 
 <template>
-    <h1>Profile</h1>
-    <h2 v-if="user">{{ user.name }}</h2>
-    <span v-if="user"> {{ user.email }}</span>
-    <button v-if="user" @click="logout(), this.$router.push({ name: 'Home' })">Cerrar sesión</button>
-
+    <div class="main__profile">
+        <h1>Perfil</h1>
+        <section class="profile__section">
+            <h2>{{ user.name }}</h2>
+            <span> {{ user.email }}</span>
+            <button @click="logout(), this.$router.push({ name: 'Home' })">Cerrar sesión</button>
+        </section>
+    </div>
 </template>
 

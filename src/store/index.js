@@ -8,7 +8,7 @@ const store = createStore({
     modules:{
       cart,
       courses,
-      user
+      user,
     },
     state () { //data
       return{

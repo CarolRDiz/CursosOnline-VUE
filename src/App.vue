@@ -12,6 +12,7 @@
 <script>
 import Header from './components/Header.vue'
 import { mapState, mapGetters, mapActions } from "vuex"
+// import { auth } from "./firebase"
 
 export default {
   name: 'App',
@@ -25,7 +26,10 @@ export default {
       searchValue: ''
     }
   },
-
+  mounted() {
+    // const VUE_APP_ROOT_API = process.env.VUE_APP_ROOT_API;
+    // console.log(VUE_APP_ROOT_API)
+  },
   methods: {
     ...mapActions('user', {
       localStorageUser: "localStorageUser",
@@ -73,21 +77,6 @@ export default {
 }
 </script>
 <style>
-h1 {
-  font-size: 40px;
-}
+@import "./assets/css/main.css";
 
-* {
-  font-size: 18px;
-  box-sizing: border-box;
-}
-
-main {
-  background-color: rgb(221, 221, 221);
-  padding: 30px;
-}
-
-ul {
-  padding: 0;
-  list-style-type: none;
-}</style>
+</style>

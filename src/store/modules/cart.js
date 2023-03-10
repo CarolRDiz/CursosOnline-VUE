@@ -5,12 +5,23 @@ export default{
         checkoutStatus: null,
     },
     getters:{
+        cartCount(state){
+            return state.items.length
+        },
         cartCourses(state, getters, rootState, rootGetters){ //rootState en getters es el tercer argumento
             return state.items.map(cartItem => {
+                console.log(rootState.courses.items)
                 const course = rootState.courses.items.find(course => course.id === cartItem)
+                console.log(course)
                 return {
+                    id: course.id,
                     title: course.title,
+                    author: course.author,
                     price: course.price,
+                    duration: course.duration,
+                    language: course.language,
+                    subtitle: course.subtitle,
+                    image: course.image
                 }
             })
         },
@@ -21,6 +32,9 @@ export default{
     mutations:{
         pushCourseToCart(state, courseID) {
             state.items.push(courseID)
+        },
+        deleteCourseInCart(state, courseID) {
+            state.items = state.items.filter(course => course != courseID);
         },
         setCheckoutStatus(state, status){
             state.checkoutStatus = status
@@ -40,20 +54,12 @@ export default{
                 //context.commit("incrementItemQuantity",{root})
             }
         },
-        async addCoursesToUser({ state, commit }) {
-            const res = await fetch('https://api-node.up.railway.app/api/v1/users/user/courses', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                credentials: 'include',
-                body: JSON.stringify({
-                    courses: state.items
-                })
-            })
-            console.log("addCoursesToUser hecho")
-            await commit("emptyCart")
-            await commit("setCheckoutStatus", "success")
+        eliminateCourseInCart({commit}, courseID){
+            commit("deleteCourseInCart", courseID)
+        },
+        checkout({ state, commit }) {
+            commit("emptyCart")
+            commit("setCheckoutStatus", "success")
             //commit("setCheckoutStatus", "fail")
         },
     }

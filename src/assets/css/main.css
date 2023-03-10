@@ -1,0 +1,377 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 30px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 25px;
+    margin: 0;
+}
+
+h3 {
+    font-size: 20px;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    background-color: rgb(221, 221, 221);
+    padding: 30px;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.icon--large {
+    width: 80px;
+}
+.icon {
+    width: 30px;
+    height: 30px;
+}
+.icon--small {
+    width: 20px;
+}
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 5px 60px;
+}
+
+/* NAV */
+.nav__ul {
+    display: flex;
+    column-gap: 30px;
+    color: white;
+}
+
+.nav__link {
+    color: white;
+    text-decoration: none;
+}
+
+.active-link {
+    color: rgb(255, 255, 255);
+}
+
+/* FILTERS */
+.main__filters {}
+
+.filters__block {}
+
+.filters__ul {}
+
+.filters__li {}
+
+.filters__checbox {}
+
+
+/* LOGINREGISTER */
+.main__auth {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth__options {
+    display: flex;
+    column-gap: 40px;
+}
+
+.auth__option {
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.auth__option:hover {
+    filter: brightness(80%);
+}
+
+.auth__option--active {
+    background-color: rgb(0, 204, 255);
+}
+
+.auth__option--active:hover {
+    filter: brightness(100%);
+}
+
+.auth__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.auth__fieldset {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    border: none;
+    padding: 0;
+}
+.auth__fieldset legend, .auth__fieldset label{
+    display: none;
+}
+.auth__message{
+    padding: 5px;
+    background-color: rgb(255, 147, 147);
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.form__submit {
+    width: fit-content;
+    padding: 10px;
+    border: none;
+    background-color: aquamarine;
+}
+
+.form__submit:hover {
+    filter: brightness(95%);
+}
+
+.form__input {
+    padding: 10px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 5px;
+    border: none;
+}
+
+.auth__change {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    width: fit-content;
+    color: rgb(162, 0, 232);
+}
+.auth__change:hover {
+    text-decoration: underline;
+}
+
+.main__auth div {
+    background-color: white;
+    padding: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+/* HOME */
+
+.home {
+    display: flex;
+    column-gap: 80px;
+}
+
+/* COURSES */
+.course__img {
+    width: 100%;
+}
+.course__routerLink{
+    width: 100%;
+}
+.courses{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    row-gap: 50px;
+    width: 100%;
+}
+.courses__course{
+    background-color: white;
+    width: 100%;
+    max-width: 350px;
+    padding-bottom: 10px;
+}
+.course__purchased{
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    background-color: rgb(134, 255, 229);
+}
+.course__content {
+    padding: 0 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.course__link {
+    text-decoration: none;
+    color: black;
+}
+.button--large{
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+}
+.modal--addToCart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modal--login {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.modal__link {
+    color: rgb(162, 0, 232);
+    cursor:pointer;
+}
+.modal__link:hover {
+    text-decoration: underline;
+}
+
+/* CART */
+
+.cart__list{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    list-style-type:none;
+}
+.cart__item{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid rgb(239, 239, 239);
+    border-bottom: 2px solid rgb(239, 239, 239);
+    padding: 40px 0;
+}
+
+.item__right {
+    display: flex;
+    column-gap: 10px;
+}
+
+.item__left {
+    display: flex;
+    justify-content: end;
+    column-gap: 50px;
+}
+
+
+.item__img {
+    max-width: 160px;
+    width: 100%;
+}
+
+.item__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.item__group{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.item__author, .item__span{
+    font-size: 14px;
+}
+
+.item__span {
+    color: rgb(114, 114, 114);
+}
+
+.main__cart {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    width: 80%;
+}
+.cart__article {
+    background-color: white;
+    padding: 40px 40px;
+}
+.cart__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart__info div span {
+    font-size: 20px;
+}
+
+.cart__home-link {
+display: flex;
+column-gap: 15px;
+align-items: center;
+text-decoration: none;
+color: black;
+padding: 0 5px;
+}
+.cart__home-link:hover{
+    background-color: aquamarine;
+    }
+
+.click{
+    cursor:pointer;
+}
+
+/* SHOW COURSE */
+.showCourse {
+    background-color: rgb(212, 212, 212);
+    display: flex;
+    column-gap: 40px;
+}
+
+.showCourse__img {
+    max-width: 700px;
+    width: 100%;
+}
+
+.showCourse__ul {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(237, 237, 237);
+    padding: 10px;
+    row-gap: 10px;
+}
+
+.showCourse__subtitles {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.showCourse__subtitle {
+}
+
+.showCourse__author {
+    text-decoration: none;
+    color: black;
+}
+
+.showCourse__author:hover {
+    color: rgb(0, 180, 159);
+}
+
+.profile__section {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+}

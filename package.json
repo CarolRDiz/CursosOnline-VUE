@@ -15,8 +15,9 @@
     "vue": "^3.2.47",
     "vue-axios": "^3.5.2",
     "vue-router": "^4.1.6",
-    "vuefire": "^3.0.1",
-    "vuex": "^4.0.2"
+    "vuefire": "^3.1.0",
+    "vuex": "^4.0.2",
+    "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.2",
