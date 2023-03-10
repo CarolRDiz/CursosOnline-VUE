@@ -1,0 +1,1 @@
+import{_ as t,r as n,o as r,c,f as e,e as a,w as s,F as _}from"./index-b3de40db.js";const l={};function f(i,u){const o=n("router-link");return r(),c(_,null,[e(" NOT FOUND "),a(o,{to:"/"},{default:s(()=>[e("Inicio")]),_:1})],64)}const m=t(l,[["render",f]]);export{m as default};

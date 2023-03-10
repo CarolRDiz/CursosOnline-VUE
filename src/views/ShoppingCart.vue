@@ -16,6 +16,9 @@ export default {
             checkoutStatus: state => state.checkoutStatus,
             cartCoursesId: state => state.items
         }),
+        ...mapState('user', {
+            user: state => state.userData,
+            }),
 
         ...mapGetters('cart', {
             courses: "cartCourses",
@@ -44,6 +47,14 @@ export default {
         toggleModal(){
             this.modalActive = !this.modalActive;
         },
+        buy(){
+            if(this.user){
+                this.addCoursesToUser(this.cartCoursesId), this.checkout(), this.toggleModal()
+            }
+            else{
+                this.$router.push({ name: 'LoginRegister' })
+            }
+        }
     }
 }
 </script>
@@ -88,7 +99,7 @@ export default {
         </div>
         <div v-if="total!=0">
             <p>Total: {{ total }}</p>
-            <button @click="addCoursesToUser(cartCoursesId), checkout(), toggleModal()">Comprar</button>
+            <button @click="buy()">Comprar</button>
         </div>
     </article>
     <Modal @close="toggleModal" :modalActive="modalActive">

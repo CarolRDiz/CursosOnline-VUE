@@ -18,9 +18,12 @@ export default {
         ...mapState('cart', {
             cart: state => state.items
         }),
+        // ...mapState('user', {
+        //     purchases: state => state.userData.courses
+        // }),
         ...mapState('user', {
-            purchases: state => state.userData.courses
-        }),
+            user: state => state.userData,
+            }),
         ...mapGetters('courses', {
             subtitleCourses: "subtitledCourses",
         })
@@ -44,7 +47,7 @@ export default {
             return this.cart.includes(courseID)
         },
         checkCoursePurchased(courseID){
-            return this.purchases.includes(courseID)
+            if(this.user)return this.user.courses.includes(courseID)
         }
     },
 }
