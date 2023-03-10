@@ -1,1 +1,0 @@
-import{_ as t,f as n,o as r,c,j as e,g as a,w as s,F as _}from"./index-c8a00d26.js";const l={};function f(i,u){const o=n("router-link");return r(),c(_,null,[e(" NOT FOUND "),a(o,{to:"/"},{default:s(()=>[e("Inicio")]),_:1})],64)}const m=t(l,[["render",f]]);export{m as default};
