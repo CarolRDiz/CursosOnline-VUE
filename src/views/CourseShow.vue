@@ -9,10 +9,12 @@ import CarouselSlide from '../components/CarouselSlide.vue'
 import Modal from "../components/Modal.vue"
 import LoginAndRegister from '../components/LoginAndRegister.vue'
 import Comment from '../components/Comment.vue'
+import MenuFloat from '../components/MenuFloat.vue'
+
 export default {
     name: "Course",
     components: {
-        GoBack, Modal, LessonItem, Carousel, CarouselSlide, CardProject, LoginAndRegister, Comment
+        GoBack, Modal, LessonItem, Carousel, CarouselSlide, CardProject, LoginAndRegister, Comment, MenuFloat
     },
     data() {
         return {
@@ -146,6 +148,7 @@ methods: {
 </script>
 <template>
     <div>
+        <MenuFloat />
         <GoBack />
         <section v-if="course" class="course">
             <div class="course__header">

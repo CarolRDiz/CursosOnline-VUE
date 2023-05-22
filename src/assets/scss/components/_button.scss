@@ -17,6 +17,7 @@ button[class*="--large"]{
 
 button[class*="--white"]{
     @extend %button;
+    border: none;
     background-color: var(--color__icon);
     color: var(--color__text--bg_dark);
     font-weight: 550;
@@ -24,12 +25,14 @@ button[class*="--white"]{
 
 button[class*="--black"] {
     @extend %button;
+    border: none;
     background-color: var(--color__icon--bg_dark);
     color: var(--color__text);
     font-weight: 550;
 }
 button[class*="--primary"] {
     @extend %button;
+    border: none;
     background-color: var(--color__primary);
     color: var(--color__text--bg_dark);
     font-weight: 550;
