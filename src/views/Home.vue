@@ -1,19 +1,19 @@
 <template>
-  <div class="home">
+  <div class="main__home">
+    
     <aside class="main__aside">
       <Filters @check-filter="updateDataByFilter" />
     </aside>
-    <Courses :courses="courses" />
   </div>
 </template>
 <script>
 import { mapState, mapGetters, mapActions } from "vuex"
-import Courses from "../components/Courses.vue"
+import CoursesComponent from "../components/CoursesComponent.vue"
 import Filters from "../components/Filters.vue"
 export default {
   name: 'Home',
   components: {
-    Courses,
+    CoursesComponent,
     Filters
   },
   data() {
@@ -57,6 +57,7 @@ export default {
     await this.fetchCourses()
       .then(() => this.loading = false);
   },
+
   methods: {
     ...mapActions('courses', {
       fetchCourses: "fetchCourses",
@@ -64,7 +65,7 @@ export default {
     updateDataByFilter(updatedOptions) {
       this.filters = updatedOptions
       console.log(this.filters)
-    }
+    },
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
-  <Header @search-filter="this.searchValue = $event" />
+  <Header  @search-filter="this.searchValue = $event" />
 
-  <main>
+  <main >
     <RouterView :key="$route.path" />
   </main>
 </template>
@@ -36,15 +36,17 @@ export default {
     algo(searchValue) {
       console.log(searchValue)
     },
+    /*
     async fetchCourses() {
       const res = await fetch('https://api-node.up.railway.app/api/v1/productos')
       const data = await res.json()
       return data
     }
+    */
   },
 
   async created() {
-    this.courses = Object.values(await this.fetchCourses())
+    /*this.courses = Object.values(await this.fetchCourses())*/
     console.log(this.courses)
     this.localStorageUser()
   },
@@ -60,7 +62,6 @@ export default {
   },
 }
 </script>
-<style>
-@import "./assets/css/main.css";
-
+<style lang="scss">
+@import "./assets/scss/main.scss";
 </style>

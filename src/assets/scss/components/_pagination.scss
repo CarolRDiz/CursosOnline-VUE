@@ -1,0 +1,13 @@
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+}
+.pagination__item {
+    display: flex;
+    justify-content: center;
+    min-width: 32px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: var(--color__text);
+    transition: all .3s;
+}

@@ -1,0 +1,16 @@
+header {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    padding: 40px 40px;
+    justify-content: space-between;
+}
+.nav__ul{
+    @extend %flex-center;
+    column-gap: 30px;
+}
+
+.logo {
+    color: var(--color__primary);
+    font-size: 30px;
+}

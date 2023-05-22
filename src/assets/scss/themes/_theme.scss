@@ -1,0 +1,61 @@
+$color__primary: #18F069;
+$color__secondary: #F09300;
+$color__tertiary: #8D18F0;
+$color__inspire: #b771f13a;
+$rounded-normal: 20px;
+$rounded-small: 10px;
+$color__bg: white;
+$color__bg--dark: black;
+
+$text-size-small: 12px;
+$text-size-primary: 16px;
+$text-size-medium: 18px;
+$text-size-large: 24px;
+
+$color__icon: #000000;
+$color__background-icon:#ffffff;
+$color__gray-1: #0B0B0B; 
+$color__gray-2: #7B7B7B; 
+$color__gray-3: #C4C4C4;
+$color__gray-4: #E9E9E9;
+
+
+$color__text: black;
+$color__text--bg_dark: white;
+
+$color__icon--bg_dark:#ffffff;
+$color__background-icon--bg_dark:#000000;
+
+// Theme light
+.theme{
+    --color__primary: #{$color__primary};
+    --color__secondary: #{$color__secondary};
+    --color__tertiary: #{$color__tertiary};
+
+    --color__gray-2: #{$color__gray-2}; 
+    --color__gray-3: #{$color__gray-3};
+    --color__gray-4: #{$color__gray-4};
+    
+    --color__text: #{$color__text};
+    --color__text--bg_dark: #{$color__text--bg_dark};
+    --color__icon: #{$color__icon};
+    --color__icon--bg_dark: #{$color__icon--bg_dark};
+    --color__bg: #{$color__bg};
+    // Theme dark
+    &--dark{
+        --color__primary: #{$color__primary};
+        --color__secondary: #{$color__secondary};
+        --color__tertiary: #{$color__tertiary};
+        --color__inspire: #{$color__inspire};
+        --color__gray-1: #{$color__gray-1}; 
+        --color__gray-2: #{$color__gray-2}; 
+        --color__gray-3: #{$color__gray-3};
+        --color__gray-4: #{$color__gray-4};
+
+        --color__text: #{$color__text--bg_dark};
+        --color__text--bg_dark: #{$color__text};
+        --color__icon: #{$color__icon--bg_dark};
+        --color__icon--bg_dark: #{$color__icon};
+        --color__bg: #{$color__bg--dark};
+    }
+}

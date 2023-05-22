@@ -23,18 +23,10 @@ export default {
         fetchImg(image){
             return this.fetchImageURL+image
         },
-        ...mapActions('user', {
-            localStorageUser: "localStorageUser",
-        }),
         ...mapActions('courses', {
             fetchCourses: "fetchCourses",
         }),
     },
-    async created() {
-        await this.localStorageUser()
-        await this.fetchCourses()
-        .then(() => this.loading = false);
-    }
 }
 </script>
 <template>

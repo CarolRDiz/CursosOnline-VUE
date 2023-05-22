@@ -1,0 +1,88 @@
+.courses{
+    --minthumb: 350px;
+    --gutter: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--minthumb), 1fr));
+    grid-auto-flow: row dense;
+    grid-gap: clamp(20px,3vw,60px) var(--gutter);
+    padding-bottom: 30px;
+    /*display: flex;
+    column-gap: 20px;
+    row-gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    */
+}
+.courses__card-course{
+    --card-border: 1px solid var(--color__gray-3);
+    --card-course-x: 30px;
+    --card-course-y: 20px;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: $box-shadow;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color__gray-4);
+    
+}
+.card-course__row{
+    display: flex;
+    justify-content: space-between;
+    padding:  var(--card-course-y)  var(--card-course-x);
+}
+.card-course__footer .card-course__row {
+    border-top: var(--card-border)
+}
+.card-course__img{
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+}
+.card-course__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.card-course__content * {
+    color:var(--color__text--bg_dark)
+}
+.card-course__title {
+    a{
+        line-height: 1;
+        font-size:24px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+}
+.card-course__box-score {
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.box-score__info {
+    display: flex;
+    width: 100px;
+    column-gap: 5px;
+}
+.box-score__wrap {
+    position: relative;
+    background-color: var(--color__gray-2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.box-score__bar {
+    background-color: var(--color__secondary);
+    height: 4px;
+}
+.card-course__box-price strong{
+    font-size: 32px;
+}
+.card-course__box-price sub{
+    font-size: 14px;
+}
+.card-course__by {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}

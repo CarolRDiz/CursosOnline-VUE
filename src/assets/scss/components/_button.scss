@@ -1,0 +1,49 @@
+$border-weight: 1px;
+
+button[class*="--large"]{
+    @extend %button;
+    width: 100%;
+}
+
+%button {
+    display: inline-flex;
+    height:$item-height;
+    justify-content: center;
+    padding: 0 15px;
+    align-items: center;
+    border-radius: $item-border-radius;
+    cursor: pointer;
+}
+
+button[class*="--white"]{
+    @extend %button;
+    background-color: var(--color__icon);
+    color: var(--color__text--bg_dark);
+    font-weight: 550;
+}
+
+button[class*="--black"] {
+    @extend %button;
+    background-color: var(--color__icon--bg_dark);
+    color: var(--color__text);
+    font-weight: 550;
+}
+button[class*="--primary"] {
+    @extend %button;
+    background-color: var(--color__primary);
+    color: var(--color__text--bg_dark);
+    font-weight: 550;
+}
+@mixin button-empty($color: var(--color__primary)) {
+    border: $border-weight solid $color;
+    color: $color;
+    background: none;
+}
+button[class*="--white--empty"] {
+    @extend %button;
+    @include button-empty(var(--color__icon));
+}
+button[class*="--primary--empty"] {
+    @extend %button;
+    @include button-empty(var(--color__primary));
+}

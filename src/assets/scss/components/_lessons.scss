@@ -1,0 +1,100 @@
+.lessons-list__row {
+    display: flex;
+    gap: 20px;
+    padding: clamp(20px,3vw,30px);
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.lessons-list__row--head {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+.lessons-list__left {
+    display: flex;
+    align-items: center;
+    width: 400px;
+    @include tablet {
+        flex-direction: column;
+        width: 100%;
+        row-gap: 20px;
+    }
+}
+.lessons-list__col {
+    width: 130px;
+    text-align: center;
+}
+.lessons-list__right {
+    display: flex;
+    justify-content: space-between;
+    @include tablet {
+        display: none;
+    }
+}
+.lessons-list__ico {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    width: 50px;
+}
+// LESSONS-LIST--S1
+.lessons-list--s1 .lessons-list__item:nth-child(even) {
+    background: #0B0B0B;
+}
+.lessons-list--s1 .lessons-list__row {
+    background-image: linear-gradient(to right, rgb(var(--color-dotteds-rgb)) 0 10%, rgba(255, 255, 255, 0) 10%);
+    background-position: bottom;
+    background-size: 8px 1px;
+    background-repeat: repeat-x;
+}
+.lessons-list__budget {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    margin-right: 12px;
+    padding: 0 20px;
+    background: var(--color__inspire);
+    border-radius: $rounded-small;
+    line-height: normal;
+}
+.lessons-list--s1 .lessons-list__title {
+    font-size: 18px;
+    font-size: clamp(18px, 17.2957746479px + 0.1408450704vw, 20px);
+    font-weight: bold;
+}
+// LESSONS-LIST--S2
+.lessons-list--s2.is-open {
+    display: block;
+}
+.lessons-list--s2 {
+    display: none;
+}
+.lessons-list .is-public {
+    cursor: pointer;
+}
+.lessons-list--s2 .lessons-list__row {
+    background-image: none;
+    border-bottom: 1px solid #e9e9e918;
+    cursor: auto;
+}
+.lessons-list__play {
+    text-align: right;
+}
+.lessons-list--s2 .lessons-list__title {
+    font-size: $text-size-primary;
+    font-weight: normal;
+}
+.ico-svg {
+    position: relative;
+    display: inline-block;
+    height: auto;
+    fill: currentColor;
+    transition: all .3s;
+}
+.lessons-list--s2 .lessons-list__ico {
+    margin-left: 36px;
+}
+
+@include tablet {
+}

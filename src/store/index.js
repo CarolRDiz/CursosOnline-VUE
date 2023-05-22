@@ -3,16 +3,18 @@ import actions from './actions'
 import cart from './modules/cart'
 import courses from './modules/courses'
 import user from './modules/user'
+import loginAndRegister from './modules/loginAndRegister'
 // Create a new store instance.
 const store = createStore({
     modules:{
       cart,
       courses,
       user,
+      loginAndRegister,
     },
     state () { //data
       return{
-        fetchImageURL: "https://api-node.up.railway.app/api/v1/images/"
+        fetchImageURL: "http://localhost:3001/api/v1/images/"
       }
     },
     getters:{ // = computed

@@ -1,0 +1,35 @@
+.icon{
+    width:30px;
+}
+.icon--large {
+    width:80px;
+}
+.icon--small {
+    width: 20px;
+}
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+svg[class*="--black"]{
+  path, polygon, rect, circle {
+    fill: var(--color__icon--bg_dark);
+  }
+}
+svg[class*="svg-icon"]{
+  width: 1.5em;
+    height: 1.5em;
+}
+.svg-icon {
+    width: 1.5em;
+    height: 1.5em;
+  }
+  
+  .svg-icon path{
+    stroke: var(--color__icon);
+  }
+  
+
+
+.icon-menu{
+    transform: rotate(90deg);
+}

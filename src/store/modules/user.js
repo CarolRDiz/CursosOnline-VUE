@@ -75,7 +75,7 @@ export default {
         async doLogin({ commit }, { inputEmail, inputPassword }) {
             commit('resetMessage')
             try {
-                const res = await fetch('https://api-node.up.railway.app/api/v1/users/login', {
+                const res = await fetch('http://localhost:3001/api/v1/users/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ export default {
         async doRegister({ commit }, { inputName, inputEmail, inputPassword }) {
             commit('resetMessage')
             try {
-                const res = await fetch('https://api-node.up.railway.app/api/v1/users/signup', {
+                const res = await fetch('http://localhost:3001/api/v1/users/signup', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -138,7 +138,7 @@ export default {
 
         async logout({ commit }) {
             try {
-                const res = await fetch('https://api-node.up.railway.app/api/v1/users/logout', {
+                const res = await fetch('http://localhost:3001/api/v1/users/logout', {
                     method: 'DELETE',
                     credentials: 'include',
                 })

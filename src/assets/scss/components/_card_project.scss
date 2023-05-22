@@ -1,0 +1,24 @@
+.card-project__img{
+    max-width: 300px;
+    width: 100%;
+    border-radius: $item-border-radius--large;
+    margin-bottom: 20px;
+}
+.card-project:nth-child(1){
+    @include tablet{
+        .card-project__img{
+        max-width: none;    
+        }
+        
+    }
+}
+.card-project:nth-child(2){
+    @include tablet{
+        display: none;
+    }
+}
+.card-project:nth-child(3){
+    @include tablet{
+        display: none;
+    }
+}

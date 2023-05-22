@@ -1,0 +1,14 @@
+.icon__loginRegister {
+    display: none;
+    @include tablet {
+        display: inline-block;
+    }
+}
+.nav__ul button{
+    @include tablet {
+        display: none;
+    }
+}
+.nav__link {
+    text-decoration: none;
+}

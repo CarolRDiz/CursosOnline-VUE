@@ -1,0 +1,31 @@
+.main__filters{
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.filters__block {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.filters__ul{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.filters__li {
+    display: flex;
+    column-gap: 5px;
+}
+
+.filters__checkbox {
+
+}
+
+.filters__label {
+    flex: none;
+}

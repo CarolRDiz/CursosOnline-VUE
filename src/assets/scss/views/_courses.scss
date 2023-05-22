@@ -1,0 +1,19 @@
+.heading-block{
+    @extend %flex-center;
+    flex-direction: column;
+    width: 100%;
+    padding: 30px;
+    row-gap: 30px;
+}
+
+.postit {
+    background-color: var(--color__gray-1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    p {
+        font-size: 16px;
+        color: var(--color__gray-3);
+    }
+}
