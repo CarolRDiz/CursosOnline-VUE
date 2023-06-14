@@ -3,25 +3,38 @@
     flex-wrap: wrap;
     gap:5%;
     padding: 60px 0;
+    @include tablet {
+        flex-direction: column;
+        row-gap: 40px;
+    }
+}
+.course__header > div {
+    flex: 1;
 }
 .course__header .course__left {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    max-width: 47.5%;
-    width: 100%;
-    min-width: 300px;
+    // max-width: 47.5%;
+    // width: 100%;
+    // min-width: 300px;
     padding-top: 50px;
 }
 .course__right {
-    width: 100%;
-    max-width:  47.5%;
+    
+    // width: 100%;
+    // max-width:  47.5%;
 }
+.course__img {
+    width: 100%;
+}
+
 .course__subtitle {
     margin: 80px 0;
 }
 .course__by {}
+
 .course__features {
+    margin-top: clamp(40px,4vw,80px);
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
@@ -29,35 +42,45 @@
 .course__features li {
     padding-left: 30px;
     position: relative;
-}
-.course__features .svg-icon {
-    position: absolute;
-    left: 0;
+
+    .svg-icon {
+        position: absolute;
+        left: 0;
+    }
 }
 .course__entry {
-    font-size: 20px;
     display: flex;
     flex-direction: column;
     row-gap: 50px;
     margin: 80px 0;
-    .entry__divided {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 60px;
-        
-    }
+    
+    // * {
+    //     font-size: clamp(18px, 15.8873239437px + 0.4225352113vw, 24px);
+    // }
     * {
-        font-size: clamp(18px, 15.8873239437px + 0.4225352113vw, 24px);
+        font-size: var(--fs-500);
     }
     div p:first-child {
         margin-bottom: 20px;
     }
-    
+}
+.entry__divided {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 60px;
+    @include tablet{
+        display: flex;
+        flex-direction: column;
+    }
 }
 .course__entry ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1.5em clamp(40px,4vw,80px);
+    @include mobile {
+        display: flex;
+        flex-direction: column;
+    }
 }
 .course__entry li {
     position: relative;
@@ -75,9 +98,11 @@
     justify-content: center;
 }
 .c-heading__short-desc{
+    display: inline-block;
     width: 360px;
     max-width: 100%;
-    font-size: clamp(18px, 15.8873239437px + 0.4225352113vw, 24px);
+    //font-size: clamp(18px, 15.8873239437px + 0.4225352113vw, 24px);
+    font-size: var(--fs-xl-6);
 }
 
 //COURSE-STATS

@@ -1,0 +1,129 @@
+.modal-cart{
+    z-index: 6;
+    top:0;
+    left:0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(19, 33, 31, 0.768);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+.modal-cart__sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    max-width: 850px;
+}
+.cart-sidebar{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    background-color: var(--color__bg);
+    padding: 70px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.modal-cart__title{
+    font-size: var(--fs-500);
+}
+.modal-cart__count{
+    margin-left: 10px;
+    display: inline-flex;
+    background-color: var(--color__secondary);
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+
+    color: var(--color__text--bg_dark);
+    border-radius: 50%;
+    font-size: var(fs--400);
+    font-weight: bold;
+    line-height: normal;
+}
+.cart-sidebar__checkout-button {
+    width: 100%;
+}
+.modal-cart__header{
+    display: flex;
+    justify-content: space-between;
+}
+.list-cart{
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+.list-cart__item{
+    background-color: var(--color__gray-1);
+    padding: 40px;
+    border-radius: $rounded-small;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+   
+}
+.list-cart__right{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: end;
+    justify-content: space-between;
+}
+.list-cart__info{
+    display: flex;
+    column-gap: 20px;
+
+}
+.cart__img{
+    width: 90px;
+    border-radius: $rounded-small;
+}
+
+.list-cart__data{
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.list-cart__title{
+    font-size: var(--fs-400);
+}
+.cart-sidebar__total{
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+.card-course__remove{
+    cursor: pointer;
+}
+.cart-sidebar__shopping-cart-icon{
+    max-width: 200px;
+    width: 100%;
+}
+.cart-sidebar__cart-empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+}
+.cart-empty__message{
+    text-align: center;
+    max-width: 400px;
+    font-size: 30px;
+}
+.cart-sidebar__footer{
+    text-align: center;
+}
+.cart-sidebar__checkout{
+    margin-bottom: 25px;
+}

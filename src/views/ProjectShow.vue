@@ -76,13 +76,13 @@ export default {
                     </li>
                 </ul>
                 <button v-if="!checkCourseInCart(course.id)" @click="addCourseToCart(course), toggleModal()" 
-                    class="button--large">
+                    class="button button--large">
                     <img class="icon" src="../assets/img/anadir-a-la-cesta.png" alt="">
                     Añadir al carrito 
                     <span>{{ course.price }}€</span>
                 </button>
                 <button v-if="checkCourseInCart(course.id)" @click="eliminateCourseInCart(course.id)"
-                    class="button--large">
+                    class="button button--large">
                     <img  class="item__delete icon click" src="../assets/img/x-mark.png"
                     alt="">  Quitar del carrito
                 </button>

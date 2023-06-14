@@ -23,21 +23,21 @@
     -->
   </div>
   </section>
-  <LoginAndRegister/>
+  <ModalLoginRegister/>
 </template>
 <script>
 import { mapState, mapGetters, mapActions } from "vuex"
 import CourseComponent from "../components/CourseComponent.vue"
 import Pagination from "../components/Pagination.vue"
 import Filters from "../components/Filters.vue"
-import LoginAndRegister from "../components/LoginAndRegister.vue"
+import ModalLoginRegister from "../components/ModalLoginRegister.vue"
 export default {
   name: 'Courses',
   components: {
     CourseComponent,
     Filters,
     Pagination,
-    LoginAndRegister
+    ModalLoginRegister
   },
   data() {
     return {
@@ -84,11 +84,15 @@ export default {
 
   async created() {
     this.loading = true;
+    await this.fetchUser();
     await this.fetchCourses()
       .then(() => this.loading = false);
   },
 
   methods: {
+    ...mapActions('auth', {
+      fetchUser: "fetchUser"
+    }),
     ...mapActions('courses', {
       fetchCourses: "fetchCourses",
     }),

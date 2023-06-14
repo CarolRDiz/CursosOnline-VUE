@@ -44,13 +44,18 @@
     -->
 
     <div class="searchBar">
-        <IconSearch />
+        <IconSearch class="svg-icon--white"/>
         <input class="searchBar__input" v-model="searchValue" type="text" placeholder="Buscar..." />
-        <button class="searchBar-dropdown">
+        <!-- <Dropdown
+            :config="config"
+            @setSelectedOption="setNewSelectedOption($event);"
+        ></Dropdown> -->
+        
+        <!-- <button class="searchBar-dropdown">
             <span class="searchBar-dropdown__selected search-dropdown--is-active">
                 <RouterLink to="/courses">Cursos</RouterLink>
             </span>
-            <IconArrowDown />
+            <IconArrowDown class="svg-icon--white"/>
             <ul class="searchBar-dropdown__options">
                 <li>
                     <RouterLink to="/courses">Cursos</RouterLink>
@@ -62,26 +67,52 @@
                     <RouterLink to="/creatives">Creativos</RouterLink>
                 </li>
             </ul>
-        </button>
+        </button> -->
     </div>
 </template>
 <script>
 import IconSearch from './icons/IconSearch.vue'
 import IconArrowDown from './icons/IconArrowDown.vue'
+//import Dropdown from './Dropdown.vue'
+
 export default {
     name: 'SearchBar',
     components: {
-        IconSearch, IconArrowDown
+        IconSearch, IconArrowDown, //Dropdown
     },
     data() {
         return {
-            searchValue: ''
+            searchValue: '',
+            config: {
+                options: [
+                {
+                    value: "option 1"
+                },
+                {
+                    value: "option 2"
+                },
+                {
+                    value: "option 3"
+                }
+                ],
+                placeholder: "Placeholder",
+                backgroundColor: "#cde4f5",
+                textColor: "black",
+                borderRadius: "1.5em",
+                border: "1px solid gray",
+                width: 180
+            }
         }
     },
     watch: {
         searchValue(value) {
             console.log(value)
             this.$emit('search-filter', value)
+        }
+    },
+    methods: {
+        setNewSelectedOption(selectedOption) {
+            this.config.placeholder = selectedOption.value;
         }
     },
     emits: ['search-filter'],

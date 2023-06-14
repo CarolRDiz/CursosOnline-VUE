@@ -62,16 +62,16 @@ export default {
             console.log(coursesID)
             commit("pushCourseToUser",coursesID)
         },
-        async localStorageUser({ commit }) {
-            console.log("localStorageUser")
-            // const userName = localStorage.getItem('name');
-            // const userEmail = localStorage.getItem('email');
-            // const userCourses = localStorage.getItem('courses');
-            // const user = {name: userName, email: userEmail, courses: userCourses}
-            const user = JSON.parse(localStorage.getItem("user"))
-            console.log(user)
-            await commit('setUser', user)
-        },
+        // async localStorageUser({ commit }) {
+        //     console.log("localStorageUser")
+        //     // const userName = localStorage.getItem('name');
+        //     // const userEmail = localStorage.getItem('email');
+        //     // const userCourses = localStorage.getItem('courses');
+        //     // const user = {name: userName, email: userEmail, courses: userCourses}
+        //     const user = JSON.parse(localStorage.getItem("user"))
+        //     console.log(user)
+        //     await commit('setUser', user)
+        // },
         async doLogin({ commit }, { inputEmail, inputPassword }) {
             commit('resetMessage')
             try {

@@ -8,13 +8,19 @@
 .tb-stats tr:first-child th:first-child {
     border-top-left-radius: $rounded-normal;
 }
+.tb-stats th:nth-child(2), td:nth-child(2){
+    @include mobile {
+        display: none;
+    }
+    
+}
 .tb-stats th:first-child, .tb-stats td:first-child {
     border-left: 1px solid var(--border-table);
 }
 .tb-stats th {
     padding: clamp(8px,2vw,16px);
     border-top: 1px solid var(--border-table);
-    font-size: var(--text-size-small);
+    font-size: var(--fs-300);
     font-weight: 500;
     text-transform: uppercase;
     line-height: 120%;
@@ -34,6 +40,7 @@
 }
 .tb-stats td {
     padding: clamp(8px,2vw,20px) clamp(8px,2vw,16px);
-    font-size: 21px;
+    //font-size: clamp(18px, 15.8873239437px + 0.4225352113vw, 24px);
+    font-size: var(--fs-500);
     line-height: 120%;
 }

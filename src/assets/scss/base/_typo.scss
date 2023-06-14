@@ -1,43 +1,71 @@
+:root{
+    --ff-body: Arial, Helvetica, sans-serif;
+    --ff-heading: "Oswald", sans-serif;
+
+    --fs-xl: clamp(42px, -6.5915492958px + 9.7183098592vw, 180px);
+    --fs-xl-4: clamp(32px, 16.5070422535px + 3.0985915493vw, 76px);
+    --fs-xl-5: clamp(26px, 15.4366197183px + 2.1126760563vw, 56px);
+    --fs-xl-6: clamp(18px, 15.8873239437px + 0.4225352113vw, 24px);
+    --fs-600: 2rem;
+    --fs-500: 1.4rem;
+    --fs-450: 1.125rem;
+    --fs-400:1rem;
+    --fs-300: 0.75rem;
+    @include tablet {
+        --fs-600: 1.8rem;
+        --fs-500: 1.2rem;
+        --fs-400:1rem;
+    }
+    @include mobile {
+        --fs-500: 1rem;
+        --fs-400:0.90rem;
+    }
+}
+
+
+
 *{
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
     color: var(--color__text);
 }
 h3 {
     font-size: 18px;
     font-weight: 600;
 }
-h2 {
-    font-size: 28px;
-    font-weight: 200;
-}
+
 h1 {
     font-size: 32px;
     font-weight: 500;
     margin: 0;
 }
+p{
+    font-size: var(--fs-400);
+}
 .text-uppercase {
     text-transform: uppercase;
 }
 .heading-1 {
-    font-size: 128px;
+    font-size: var(--fs-xl);
     font-weight: 550;
 }
 .heading-1__sub {
-    font-size: 24px;
+    // font-size: 1.6vw;
+    font-size: var(--fs-500);
     font-weight: 300;
     color: var(--color__gray-4);
 }
 .heading-4 {
-    font-size: 60px;
+    font-size: var(--fs-xl-4);
     line-height: 1;
     margin-bottom: 40px;
 }
 .heading-5 {
-    font-size: 40px;
+    // font-size: 40px;
+    font-weight: 400;
+    font-size: var(--fs-xl-5);
 }
 .text-default {
-    font-size: 16px;
+    font-size: var(--fs-450)
 }
 .text_center {
     text-align: center;

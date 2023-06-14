@@ -13,7 +13,7 @@
                     <span class="text-medium">{{ lesson.duration }}</span>
                 </div>
                 <div class="lessons-list__col text-right">
-                    <button  class="button--white--empty js-open-lessons" >Ver más</button>
+                    <button  class="button button--white--empty js-open-lessons" >Ver más</button>
                 </div>
             </div>
         </div>

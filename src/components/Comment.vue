@@ -11,8 +11,8 @@
         </div>
         <div class="comment__unit-body">
             <div class="comment__vote">
-                <IconLike v-if="comment.liked"/>
-                <IconDislike v-else/>    
+                <IconLike class="svg-icon--white" v-if="comment.liked"/>
+                <IconDislike class="svg-icon--white" v-else/>    
             </div>
         <p class="comment__argument">{{ comment.argument }}</p>
     </div>

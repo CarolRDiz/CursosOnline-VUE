@@ -1,17 +1,20 @@
 <script>
-import Button from './Button.vue'
+import Logo from './Logo.vue'
 import SearchBar from './SearchBar.vue'
 import TheNavigation from './TheNavigation.vue'
 import { mapState, mapGetters, mapActions } from "vuex"
 export default {
     name: 'Header',
     components: {
-        Button,
         SearchBar,
         TheNavigation,
+        Logo,
     },
     data() {
         return {
+            //MODAL LOGIN REGISTER
+            modalActive: false,
+            isLogin: false,
             searchValue: ''
         }
     },
@@ -28,19 +31,21 @@ export default {
     },
     emits: ['search-filter'],
     methods: {
-        ...mapActions('user', {
-            localStorageUser: "localStorageUser",
-        })
+        // ...mapActions('user', {
+        //     localStorageUser: "localStorageUser",
+        // }),
+        
     },
     created() {
-        this.localStorageUser()
+        //this.localStorageUser()
     },
 
 }
 </script>
 <template>
+    
     <header>
-        <span class="logo">three</span>
+        <span class="header__logo"><Logo class="logo"/></span>
         <SearchBar />
         <TheNavigation />
         <RouterLink v-if="user" to="/profile">{{ this.user.name }}</RouterLink>

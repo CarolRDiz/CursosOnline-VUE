@@ -1,39 +1,63 @@
 $border-weight: 1px;
 
-button[class*="--large"]{
+.button {
     @extend %button;
+}
+.button[class*="--large"]{
+    @extend %button;
+    padding: 1.5em 1.6em;
+    font-size: 20px;
+    width: fit-content;
+}
+.button[class*="--complete"]{
+    @extend %button;
+    padding: 1.5em 1.6em;
+    font-size: 20px;
     width: 100%;
+}
+.button[class*="--normal"]{
+    @extend %button;
+    padding: 0.3em 1em;
+    width: fit-content;
+}
+button[class*="--small"]{
+    width: fit-content;
+    background-color: var(--color__secondary);
+    border-radius: $item-border-radius;
+    color: var(--color__text--bg_dark);
+    border: none;
 }
 
 %button {
     display: inline-flex;
     height:$item-height;
     justify-content: center;
-    padding: 0 15px;
+    
     align-items: center;
+    border: none;
     border-radius: $item-border-radius;
     cursor: pointer;
+    
 }
 
-button[class*="--white"]{
-    @extend %button;
-    border: none;
+.button[class*="--white"]{
     background-color: var(--color__icon);
     color: var(--color__text--bg_dark);
     font-weight: 550;
 }
 
-button[class*="--black"] {
-    @extend %button;
-    border: none;
+.button[class*="--black"] {
     background-color: var(--color__icon--bg_dark);
     color: var(--color__text);
     font-weight: 550;
 }
-button[class*="--primary"] {
-    @extend %button;
-    border: none;
+.button[class*="--primary"] {
     background-color: var(--color__primary);
+    color: var(--color__text--bg_dark);
+    font-weight: 550;
+}
+.button[class*="--secondary"] {
+    background-color: var(--color__secondary);
     color: var(--color__text--bg_dark);
     font-weight: 550;
 }
@@ -42,11 +66,9 @@ button[class*="--primary"] {
     color: $color;
     background: none;
 }
-button[class*="--white--empty"] {
-    @extend %button;
+.button[class*="--white--empty"] {
     @include button-empty(var(--color__icon));
 }
-button[class*="--primary--empty"] {
-    @extend %button;
+.button[class*="--primary--empty"] {
     @include button-empty(var(--color__primary));
 }

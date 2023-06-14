@@ -1,11 +1,29 @@
+:root{
+  --pad-inner: 55px;
+  @include tablet{
+    --pad-inner: 24px;
+  }
+  @include mobile {
+    --pad-inner: 16px;
+  }
+}
+
 main {
-    padding-left: 55px;
-    padding-right: 55px;
+    padding-left: var(--pad-inner);
+    padding-right: var(--pad-inner);
+
   }
 body {
   background-color: black;
+  text-rendering: optimizeLegibility;
 }
 :root {
-  --text-size-small: 12px;
   --color-dotteds-rgb: 34, 34, 34;
+}
+.no-scroll{
+  overflow: hidden;
+}
+.gradient {
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 55%, rgb(25, 5, 42) 100%);
 }

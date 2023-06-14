@@ -4,7 +4,8 @@
     <aside class="main__aside">
       <Filters @check-filter="updateDataByFilter" />
     </aside>
-  </div>
+    <FormKit type="text" />
+   </div>
 </template>
 <script>
 import { mapState, mapGetters, mapActions } from "vuex"
@@ -21,7 +22,7 @@ export default {
       loading: false,
       subareas: ["musical_production", "instruments", "music_fundamentals"],
       filters: [],
-    }
+      }
   },
   computed: {
     courses() {
@@ -54,6 +55,7 @@ export default {
 
   async created() {
     this.loading = true;
+    await this.fetchUser();
     await this.fetchCourses()
       .then(() => this.loading = false);
   },
@@ -66,6 +68,9 @@ export default {
       this.filters = updatedOptions
       console.log(this.filters)
     },
+    ...mapActions('auth', {
+      fetchUser: "fetchUser"
+    }),
   }
 }
 </script>

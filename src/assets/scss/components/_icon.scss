@@ -11,23 +11,24 @@
 SVG Icons - svgicons.sparkk.fr
 ----- */
 svg[class*="--black"]{
-  path, polygon, rect, circle {
-    fill: var(--color__icon--bg_dark);
+  path{
+    stroke: var(--color__icon--bg_dark);
   }
 }
 svg[class*="svg-icon"]{
-  width: 1.5em;
-    height: 1.5em;
-}
-.svg-icon {
     width: 1.5em;
     height: 1.5em;
-  }
-  
-  .svg-icon path{
+}
+
+svg[class*="--white"]{
+  path{
     stroke: var(--color__icon);
   }
-  
+}
+svg[class*="--large"]{
+  width: 100%;
+  height: auto;
+}
 
 
 .icon-menu{

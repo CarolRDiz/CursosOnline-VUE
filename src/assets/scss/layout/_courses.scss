@@ -1,6 +1,6 @@
 .courses{
     --minthumb: 350px;
-    --gutter: 20px;
+    --gutter: 40px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(var(--minthumb), 1fr));
     grid-auto-flow: row dense;
@@ -85,4 +85,5 @@
     display: flex;
     align-items: center;
     column-gap: 5px;
+    font-size: var(--fs-300);
 }

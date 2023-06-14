@@ -2,11 +2,12 @@
   <Header  @search-filter="this.searchValue = $event" />
 
   <main >
-    <RouterView :key="$route.path" />
+    <RouterView :key="$route.path"/>
   </main>
 </template>
 
 <script>
+
 import Header from './components/Header.vue'
 import { mapState, mapGetters, mapActions } from "vuex"
 
@@ -14,19 +15,20 @@ import { mapState, mapGetters, mapActions } from "vuex"
 export default {
   name: 'App',
   components: {
-    Header,
+    Header
   },
 
   data() {
     return {
       courses: [],
-      searchValue: ''
+      searchValue: '',
+      modalCartActive: false,
     }
   },
   methods: {
-    ...mapActions('user', {
-      localStorageUser: "localStorageUser",
-    }),
+    // ...mapActions('user', {
+    //   localStorageUser: "localStorageUser",
+    // }),
 
     deleteCourse(id) {
       if (confirm('Are you sure?')) {
@@ -48,7 +50,7 @@ export default {
   async created() {
     /*this.courses = Object.values(await this.fetchCourses())*/
     console.log(this.courses)
-    this.localStorageUser()
+    //this.localStorageUser()
   },
 
   computed: {

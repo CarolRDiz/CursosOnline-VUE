@@ -1,3 +1,4 @@
+
 $color__primary: #18F069;
 $color__secondary: #F09300;
 $color__tertiary: #8D18F0;
@@ -20,8 +21,8 @@ $color__gray-3: #C4C4C4;
 $color__gray-4: #E9E9E9;
 
 
-$color__text: black;
-$color__text--bg_dark: white;
+$color__text: rgb(33, 33, 33);
+$color__text--bg_dark: rgb(226, 226, 226);
 
 $color__icon--bg_dark:#ffffff;
 $color__background-icon--bg_dark:#000000;
@@ -57,5 +58,6 @@ $color__background-icon--bg_dark:#000000;
         --color__icon: #{$color__icon--bg_dark};
         --color__icon--bg_dark: #{$color__icon};
         --color__bg: #{$color__bg--dark};
+        --color__bg--dark: #{$color__bg};
     }
 }

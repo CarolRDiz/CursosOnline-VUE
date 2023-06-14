@@ -18,16 +18,22 @@
 @import "./components/card_project";
 @import "./components/block";
 @import "./components/comment";
+@import "./components/animation";
+@import "./components/dropdown";
+@import "./layout/modalCart.scss";
 @import "./layout/footer";
+@import "./layout/form";
 @import "./layout/header";
 @import "./layout/navigation";
 @import "./layout/filters";
 @import "./layout/courses";
 @import "./layout/searchBar";
 @import "./layout/menu-float";
+@import "./layout/modalLoginRegister";
 
 @import "./views/home.scss";
 @import "./views/course.scss";
 @import "./views/courses.scss";
 @import "./views/shoppingCart.scss";
 @import "./views/loginAndRegister.scss";
+@import "./views/createCourse.scss";

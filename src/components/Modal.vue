@@ -2,7 +2,7 @@
     <transition name="modal-animation">
         <div v-show="modalActive" class="modal">
             <transition name="modal-animation-inner">
-                <div v-show="modalActive" class="modal-inner">
+                <div class="modal-inner">
                     <i v-if="!notClose" @click="close" class="far fa-times-circle"></i>
                     <!-- Modal Content -->
                     <slot />
