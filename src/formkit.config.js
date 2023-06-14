@@ -7,6 +7,7 @@ const config = {
   icons: {
     ...eyeClosed,
     genesisIcons,
+    
 
   }
 }

@@ -15,6 +15,7 @@ $text-size-large: 24px;
 
 $color__icon: #000000;
 $color__background-icon:#ffffff;
+$color__gray-translucid: rgba(255, 255, 255, 0.178);
 $color__gray-1: #0B0B0B; 
 $color__gray-2: #7B7B7B; 
 $color__gray-3: #C4C4C4;
@@ -59,5 +60,6 @@ $color__background-icon--bg_dark:#000000;
         --color__icon--bg_dark: #{$color__icon};
         --color__bg: #{$color__bg--dark};
         --color__bg--dark: #{$color__bg};
+        --color__gray-translucid: #{$color__gray-translucid};
     }
 }

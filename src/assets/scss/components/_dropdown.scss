@@ -118,3 +118,63 @@ $option-padding: 4px 10px;
 // Smartphones - Landscape + Portrait
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 }
+
+.menu-item{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 150px;
+    position: relative;
+    cursor: pointer;
+    height: 50px;
+    padding: 0 10px;
+    align-items: center;
+    background-color: none;
+    border-radius: $item-border-radius $item-border-radius $item-border-radius 0 ;
+}
+.open {
+    background-color: var(--color__gray-3);
+    color: var(--color__text--bg_dark);
+    border-radius: $item-border-radius $item-border-radius 0 0 ;
+    a {
+        color: var(--color__text--bg_dark);
+    }
+}
+.sub-item{
+    padding: 5px 10px;
+    background-color: var(--color__gray-3);
+    
+}
+.sub-item:last-child{
+    padding-bottom: 10px;
+    border-radius:0 0 $item-border-radius $item-border-radius  ;
+}
+.sub-item:hover{
+    background-color: var(--color__gray-3);
+    
+}
+.menu-item--selected{
+    position: relative;
+}
+.sub-menu {
+    
+    position: absolute;
+    top: calc(100% - 40px);
+    width: 100%;
+    left:0;
+    padding: 40px 0 10px 0;
+    border-radius: var(--rounded-normal);
+    color: var(--color-white);
+    //transform: translateX(-50%);
+    //transform: translateX(-8px);
+    overflow: hidden;
+    //opacity: 0;
+    //visibility: hidden;
+}
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}

@@ -3,7 +3,8 @@ export default {
     state() { //data
         return {
             items: [],
-            course: []
+            course: [],
+            newCourse: localStorage.getItem("newCourse")? JSON.parse(localStorage.getItem("newCourse")):'',
         }
     },
     getters: { // = computed
@@ -23,6 +24,27 @@ export default {
         },
     },
     actions: {
+        async createCourse({commit}){
+            const res = await fetch('http://localhost:8080/courses/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem("token")
+                },
+                body: JSON.stringify({
+                    title: ''
+                })
+            })
+            if (res.status == 201) {
+                const newCourse = await res.json()
+                localStorage.setItem('newCourse', JSON.stringify(newCourse));
+                console.log("CREATE COURSE hecho")
+                return true
+            } else {
+                //throw new Error("Invalid credentials")
+                return false;
+            }
+        },
         async fetchCourses({ commit }) {
             const res = await fetch('http://localhost:3001/api/v1/productos/', {
                 method: 'GET',

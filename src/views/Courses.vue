@@ -84,7 +84,7 @@ export default {
 
   async created() {
     this.loading = true;
-    await this.fetchUser();
+    //await this.fetchUser();
     await this.fetchCourses()
       .then(() => this.loading = false);
   },

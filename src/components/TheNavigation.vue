@@ -17,9 +17,13 @@
                     @click="changeModalActiveLogin()">Entrar</button></li>
             <li class="nav__li" v-if="!user"><button class="button button--normal--primary--empty"
                     @click="changeModalActiveRegister()">Regístrate</button></li>
-            <li v-if="user">
-                <RouterLink to="/createCourse">Crear curso</RouterLink>
+            <li v-if="user&&user.admin==false">
+                <RouterLink to="/createCourse2" class="button button--normal--primary">Crear curso</RouterLink>
             </li>
+            <li v-if="user&&user.admin">
+                <RouterLink to="/admin">Administrador</RouterLink>
+            </li>
+            
             <li v-if="user">
                 <button @click="this.logout()">Salir</button>
             </li>
@@ -39,18 +43,23 @@ export default {
         return {
             //MODAL LOGIN REGISTER
             modalActive: false,
-            isLogin: false
+            isLogin: false,
         }
     },
     computed: {
         ...mapState('auth', {
             user: state => state.user,
         }),
-
+        ...mapGetters('auth', {
+            getUser: "getUser",
+        }),
     },
     methods: {
         ...mapActions("auth",{
             logout: "logout"
+        }),
+        ...mapActions("courses",{
+            createCourse: "createCourse"
         }),
         changeModalActiveLogin(){
             this.modalActive = true;
@@ -62,6 +71,14 @@ export default {
         },
         closeModal() {
             this.modalActive = false;
+        },
+        async doCreateCourse(){
+            const courseCreated = await this.createCourse();
+            if(courseCreated){
+                this.$router.push({ name: 'CreateCourse' })
+            } else {
+                alert("no es posible crear un nuevo curso")
+            }
         }
     }
 }

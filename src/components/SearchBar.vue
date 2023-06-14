@@ -46,10 +46,7 @@
     <div class="searchBar">
         <IconSearch class="svg-icon--white"/>
         <input class="searchBar__input" v-model="searchValue" type="text" placeholder="Buscar..." />
-        <!-- <Dropdown
-            :config="config"
-            @setSelectedOption="setNewSelectedOption($event);"
-        ></Dropdown> -->
+        
         
         <!-- <button class="searchBar-dropdown">
             <span class="searchBar-dropdown__selected search-dropdown--is-active">
@@ -68,20 +65,37 @@
                 </li>
             </ul>
         </button> -->
+        <Dropdown
+            :title="title"
+            :items="services"
+            @setSelectedOption="setNewSelectedOption($event)"
+        ></Dropdown>
     </div>
+    
 </template>
 <script>
 import IconSearch from './icons/IconSearch.vue'
 import IconArrowDown from './icons/IconArrowDown.vue'
-//import Dropdown from './Dropdown.vue'
+import Dropdown from './Dropdown.vue'
 
 export default {
     name: 'SearchBar',
     components: {
-        IconSearch, IconArrowDown, //Dropdown
+        IconSearch, IconArrowDown, Dropdown
     },
     data() {
         return {
+            services: [
+                {
+                    title: "All Courses",
+                    link: "/courses",
+                },
+                {
+                    title: "Users",
+                    link: "#",
+                }
+            ],
+            title: "Courses",
             searchValue: '',
             config: {
                 options: [
@@ -112,7 +126,9 @@ export default {
     },
     methods: {
         setNewSelectedOption(selectedOption) {
-            this.config.placeholder = selectedOption.value;
+            console.log("setNewSelectedOption")
+            console.log(selectedOption.title)
+            this.title = selectedOption.title;
         }
     },
     emits: ['search-filter'],

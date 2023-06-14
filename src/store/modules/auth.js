@@ -10,7 +10,7 @@ export default {
         }
     },
     getters: { // = computed
-        user(state){
+        getUser(state){
             return state.user;
         },
     },
@@ -28,9 +28,6 @@ export default {
         }
     },
     actions: {
-        getUser(){
-
-        },
         async login({ commit }, { username, password }) {
             try {
                 const res = await fetch('http://localhost:8080/token', {
@@ -93,6 +90,7 @@ export default {
             }
         },
         async fetchUser({ commit }){
+            console.log("FETCHUSER")
             try {
                 const res = await fetch('http://localhost:8080/users/principal/', {
                     method: 'GET',
@@ -105,9 +103,10 @@ export default {
                 console.log(res.status);
 
                 if (res.status == 200) {
-                    const user = await res.text();
-                    commit('setUser', user);
-                    localStorage.setItem('user', username);
+                    const user = await res.json();
+                    console.log(user.admin)
+                    localStorage.setItem('user', JSON.stringify(user));
+                    console.log(JSON.parse(localStorage.getItem("user")))
                     return true;
                 }
                 else {

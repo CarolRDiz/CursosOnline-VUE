@@ -125,13 +125,17 @@ export default {
             course: state => state.course
         }),
     },
+    
     async created() {
         await this.fetchCourse(this.$route.params.title)
-        
+        //await this.fetchUser();
         //await this.initData()
         this.$watch(() => this.$route.params, this.fetchCourse(this.$route.params.title))
     },
     methods: {
+        ...mapActions('auth', {
+            fetchUser: "fetchUser"
+        }),
         checkCourseInCart(courseID) {
             return this.cart.includes(courseID)
         },

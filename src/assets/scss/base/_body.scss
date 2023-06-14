@@ -1,5 +1,6 @@
 :root{
   --pad-inner: 55px;
+  --header-height: 71px;
   @include tablet{
     --pad-inner: 24px;
   }
@@ -23,7 +24,11 @@ body {
 .no-scroll{
   overflow: hidden;
 }
-.gradient {
+.gradient--tertiary {
   background: rgb(0,0,0);
   background: linear-gradient(0deg, rgba(0,0,0,1) 55%, rgb(25, 5, 42) 100%);
+}
+.gradient--secondary {
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 55%, #3d2702 100%);
 }

@@ -3,6 +3,7 @@
     --ff-heading: "Oswald", sans-serif;
 
     --fs-xl: clamp(42px, -6.5915492958px + 9.7183098592vw, 180px);
+    --fs-xl-3: clamp(38px, 17.5070422535px + 4.0985915493vw, 82px);
     --fs-xl-4: clamp(32px, 16.5070422535px + 3.0985915493vw, 76px);
     --fs-xl-5: clamp(26px, 15.4366197183px + 2.1126760563vw, 56px);
     --fs-xl-6: clamp(18px, 15.8873239437px + 0.4225352113vw, 24px);
@@ -54,6 +55,10 @@ p{
     font-weight: 300;
     color: var(--color__gray-4);
 }
+.heading-3 {
+    font-size: var(--fs-xl-3);
+    margin: 40px 0;
+}
 .heading-4 {
     font-size: var(--fs-xl-4);
     line-height: 1;
@@ -63,6 +68,7 @@ p{
     // font-size: 40px;
     font-weight: 400;
     font-size: var(--fs-xl-5);
+    
 }
 .text-default {
     font-size: var(--fs-450)
