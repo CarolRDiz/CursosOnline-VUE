@@ -133,9 +133,6 @@ export default {
         this.$watch(() => this.$route.params, this.fetchCourse(this.$route.params.title))
     },
     methods: {
-        ...mapActions('auth', {
-            fetchUser: "fetchUser"
-        }),
         checkCourseInCart(courseID) {
             return this.cart.includes(courseID)
         },

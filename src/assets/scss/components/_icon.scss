@@ -15,6 +15,12 @@ svg[class*="--black"]{
     stroke: var(--color__icon--bg_dark);
   }
 }
+svg[class*="--black--filled"]{
+  path{
+    stroke: var(--color__icon--bg_dark);
+    fill: var(--color__icon--bg_dark);
+  }
+}
 svg[class*="svg-icon"]{
     width: 1.5em;
     height: 1.5em;
@@ -23,6 +29,12 @@ svg[class*="svg-icon"]{
 svg[class*="--white"]{
   path{
     stroke: var(--color__icon);
+  }
+}
+svg[class*="--white--filled"]{
+  path{
+    stroke: var(--color__icon);
+    fill: var(--color__icon);
   }
 }
 svg[class*="--large"]{

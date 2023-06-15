@@ -18,7 +18,7 @@
             <li class="nav__li" v-if="!user"><button class="button button--normal--primary--empty"
                     @click="changeModalActiveRegister()">Regístrate</button></li>
             <li v-if="user&&user.admin==false">
-                <RouterLink to="/createCourse2" class="button button--normal--primary">Crear curso</RouterLink>
+                <RouterLink to="/createCourseDashboard" class="button button--normal--primary">Crear curso</RouterLink>
             </li>
             <li v-if="user&&user.admin">
                 <RouterLink to="/admin">Administrador</RouterLink>
@@ -58,9 +58,7 @@ export default {
         ...mapActions("auth",{
             logout: "logout"
         }),
-        ...mapActions("courses",{
-            createCourse: "createCourse"
-        }),
+        
         changeModalActiveLogin(){
             this.modalActive = true;
             this.isLogin = true;

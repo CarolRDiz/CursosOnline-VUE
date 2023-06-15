@@ -4,11 +4,13 @@
     width: 100%;
     left: 0;
     z-index: 4;
+    pointer-events: none;
 }
 .menu-float .inner {
     width: 100%;
     display: flex;
     justify-content: center;
+    pointer-events: none;
 }
 .menu-float__wrapper{
     display: flex;

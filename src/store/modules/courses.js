@@ -3,7 +3,7 @@ export default {
     state() { //data
         return {
             items: [],
-            course: [],
+            course: localStorage.getItem("course")? JSON.parse(localStorage.getItem("course")):'',
             newCourse: localStorage.getItem("newCourse")? JSON.parse(localStorage.getItem("newCourse")):'',
         }
     },
@@ -14,6 +14,9 @@ export default {
         courses(state) {
             return state.items
         },
+        course(state) {
+            return state.course
+        }
     },
     mutations: {
         setCourses(state, coursesData) {
@@ -39,6 +42,25 @@ export default {
                 const newCourse = await res.json()
                 localStorage.setItem('newCourse', JSON.stringify(newCourse));
                 console.log("CREATE COURSE hecho")
+                return true
+            } else {
+                //throw new Error("Invalid credentials")
+                return false;
+            }
+        },
+        async getCourse({commit}, id){
+            const res = await fetch(`http://localhost:8080/courses/${id}/`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem("token")
+                },
+            })
+            if (res.status == 200) {
+                const courseData = await res.json()
+                commit('setCourse', courseData)
+                localStorage.setItem('course', JSON.stringify(courseData));
+                console.log("GET COURSE hecho")
                 return true
             } else {
                 //throw new Error("Invalid credentials")

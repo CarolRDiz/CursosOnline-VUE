@@ -16,9 +16,9 @@ const routes = [
         meta: { requiresAuth: true }
     },
     {
-        path:"/createCourse2", 
-        name:"CreateCourse2", 
-        component: () => import('../views/CreateCourse2.vue'),
+        path:"/createCourseDashboard", 
+        name:"CreateCourseDashboard", 
+        component: () => import('../views/CreateCourseDashboard.vue'),
         meta: { requiresAuth: true }
     },
     {path:"/cart", name:"Cart", component: () => import('../views/ShoppingCart.vue')},
@@ -29,7 +29,7 @@ const routes = [
         meta: { requiresAuth: true }
     },
     {
-        path:"/createCourse", 
+        path:"/createCourse/:id", 
         name:"CreateCourse", 
         component: () => import('../views/CreateCourse.vue'),
         meta: { requiresAuth: true, bodyClass: 'gradient--secondary'}

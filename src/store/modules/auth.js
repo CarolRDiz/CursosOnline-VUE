@@ -13,6 +13,11 @@ export default {
         getUser(state){
             return state.user;
         },
+        getCreatedCourses(state){
+            console.log("GETTER: getcCreatedCourses")
+            console.log(state.user.createdCourses)
+            return state.user.createdCourses;
+        }
     },
 
     mutations: {
@@ -105,6 +110,7 @@ export default {
                 if (res.status == 200) {
                     const user = await res.json();
                     console.log(user.admin)
+                    commit("setUser", user)
                     localStorage.setItem('user', JSON.stringify(user));
                     console.log(JSON.parse(localStorage.getItem("user")))
                     return true;
