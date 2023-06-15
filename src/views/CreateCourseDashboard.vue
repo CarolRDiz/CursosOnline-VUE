@@ -44,6 +44,15 @@ export default {
             createdCourses: "getCreatedCourses",
         }),
     },
+    async created() {
+        this.loading = true;
+        await this.fetchUser()
+        this.loading = false;
+        //this.$watch(() => this.$route.params, this.course = await this.getCourse(this.$route.params.id))
+        //await this.fetchUser();
+        //await this.initData()
+        //this.$watch(() => this.$route.params, await this.getCourse(this.$route.params.id))
+    },
     methods: {
         
         ...mapActions('auth', {

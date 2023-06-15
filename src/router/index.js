@@ -13,43 +13,45 @@ const routes = [
         path:"/profile", 
         name:"Profile", 
         component: () => import('../views/Profile.vue'),
-        meta: { requiresAuth: true }
+        meta: { requiresAuth: true, requiresAdmin: false  }
     },
     {
         path:"/createCourseDashboard", 
         name:"CreateCourseDashboard", 
         component: () => import('../views/CreateCourseDashboard.vue'),
-        meta: { requiresAuth: true }
+        meta: { requiresAuth: true, requiresAdmin: false  }
     },
     {path:"/cart", name:"Cart", component: () => import('../views/ShoppingCart.vue')},
     {
         path:"/library", 
         name:"Library", 
         component: () => import('../views/Library.vue'),
-        meta: { requiresAuth: true }
+        meta: { requiresAuth: true , requiresAdmin: false }
     },
     {
         path:"/createCourse/:id", 
         name:"CreateCourse", 
         component: () => import('../views/CreateCourse.vue'),
-        meta: { requiresAuth: true, bodyClass: 'gradient--secondary'}
+        meta: { requiresAuth: true, requiresAdmin: false , bodyClass: 'gradient--secondary'}
     },
     {path:"/loginRegister", name:"LoginRegister", component: () => import('../views/LoginRegister.vue')},
     {
         path:"/checkout", 
         name:"Checkout", 
         component: () => import('../views/Checkout.vue'),
-        meta: { requiresAuth: true}
+        meta: { requiresAuth: true, requiresAdmin: false }
     },
     {
         path:"/course/:id/:title", 
         name:"course.show", 
         meta: { bodyClass: 'gradient--tertiary' },
+        meta: { requiresAuth: false, requiresAdmin: false },
         component: () => import('../views/CourseShow.vue'),
     },
     {
         path:"/:patchMatch(.*)*",
         name:"NotFound",
+        meta: { requiresAuth: false, requiresAdmin: false },
         component: () => import('../views/NotFound.vue'),
     },
     {

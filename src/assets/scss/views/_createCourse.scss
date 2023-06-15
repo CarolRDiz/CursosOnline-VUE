@@ -76,3 +76,20 @@
 .createdCourse__date{
     font-size: var(--fs-400);
 }
+.createCourse__trailer{
+    
+}
+.form__trailer{
+    background-color: var(--color__gray-translucid);
+    border-radius: $item-border-radius;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+    row-gap: 20px;
+}
+.createCourse__trailer-video{
+    width: 200px;
+    height: 150px;
+    border-radius: $item-border-radius;
+}

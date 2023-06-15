@@ -4,7 +4,7 @@
     <aside class="main__aside">
       <Filters @check-filter="updateDataByFilter" />
     </aside>
-    <FormKit type="text" />
+    
    </div>
 </template>
 <script>
