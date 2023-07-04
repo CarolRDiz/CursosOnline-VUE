@@ -7,6 +7,7 @@
     }
     .formkit-label{
         font-size: var(--fs-400);
+        color: #8B8B8B;
     }
     .formkit-input{
         font-size: var(--fs-500);
@@ -21,7 +22,9 @@
     }
 }
 .createCourse__list-heading{
-    font-size: var(--fs-500);
+    font-size: var(--fs-400);
+    text-transform: uppercase;
+    color: #8B8B8B;
 }
 .createCourse__section-heading{
     margin-bottom: 20px;
@@ -92,4 +95,13 @@
     width: 200px;
     height: 150px;
     border-radius: $item-border-radius;
+}
+.lessons__form{
+    background-color: var(--color__gray-translucid);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+    row-gap: 20px;
 }

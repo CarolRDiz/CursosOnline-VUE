@@ -3,10 +3,11 @@
 import { mapState, mapGetters, mapActions } from "vuex"
 import MenuFloatCreateCourse from '../components/MenuFloatCreateCourse.vue';
 import IconVideoAdd from "../components/icons/IconVideoAdd.vue"
+import CreateLesson from "../components/CreateLesson.vue";
 export default {
   name: "CreateCourse",
   components: {
-    MenuFloatCreateCourse, IconVideoAdd
+    MenuFloatCreateCourse, IconVideoAdd,CreateLesson
   },
   data (){
     return {
@@ -76,8 +77,12 @@ export default {
       if(updated){
         this.$router.go()
       }
-
-
+    },
+    async refreshCourse () {
+      console.log("Refresh")
+      this.loading = true
+      await this.getCourse()
+      this.loading = false
     }
   }
 }
@@ -199,7 +204,7 @@ export default {
           </FormKit>
           </div>
         </article>
-
+        <CreateLesson :id="this.course.id" :lessons="course.lessons" @refresh="refreshCourse"/>
     </div>
     
 
