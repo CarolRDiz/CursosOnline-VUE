@@ -1,0 +1,25 @@
+.select-video {
+    .formkit-inner {
+        background-color: rgba(195, 195, 195, 0.116);
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    form {
+        width: 100%;
+    }
+}
+[data-type="file"] .formkit-input{
+    appearance: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 2;
+    color: transparent;
+    display: block;
+    width: 100%;
+    opacity: 0;
+}

@@ -10,10 +10,9 @@
 }
 
 main {
-    padding-left: var(--pad-inner);
-    padding-right: var(--pad-inner);
-
-  }
+  // padding-left: var(--pad-inner);
+  // padding-right: var(--pad-inner);
+}
 body {
   background-color: black;
   text-rendering: optimizeLegibility;
@@ -31,4 +30,7 @@ body {
 .gradient--secondary {
   background: rgb(0,0,0);
   background: linear-gradient(0deg, rgba(0,0,0,1) 55%, #3d2702 100%);
+  header {
+    display: none;
+  }
 }

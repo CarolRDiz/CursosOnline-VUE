@@ -1,0 +1,1 @@
+<template>messages</template>

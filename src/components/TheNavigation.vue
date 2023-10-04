@@ -1,4 +1,5 @@
 <template>
+    <ModalCartComponent :modalCartActive="modalCartActive" @close-cart="this.closeCart()"/>
     <ModalLoginRegister :modalActive="modalActive" :isLogin="isLogin" @change-modal="this.isLogin=!this.isLogin" @close-modal="closeModal"/>
     <nav>
         <ul class="nav__ul">
@@ -20,6 +21,9 @@
             <li v-if="user&&user.admin==false">
                 <RouterLink to="/createCourseDashboard" class="button button--normal--primary">Crear curso</RouterLink>
             </li>
+            <li>
+                <IconBag class="svg-icon--white" @click="addMenuCart()"/>
+            </li>
             <li v-if="user&&user.admin">
                 <RouterLink to="/admin">Administrador</RouterLink>
             </li>
@@ -34,16 +38,21 @@
 import { mapState, mapGetters, mapActions } from "vuex"
 import SearchBar from "./SearchBar.vue"
 import ModalLoginRegister from './ModalLoginRegister.vue'
+import IconBag from './icons/IconBag.vue';
+import ModalCartComponent from '../components/ModalCartComponent.vue'
 export default {
     name: 'TheNavigation',
     components:{
-        ModalLoginRegister
+        ModalLoginRegister,
+        ModalCartComponent,
+        IconBag
     },
     data() {
         return {
             //MODAL LOGIN REGISTER
             modalActive: false,
             isLogin: false,
+            modalCartActive:false
         }
     },
     computed: {
@@ -58,7 +67,10 @@ export default {
         ...mapActions("auth",{
             logout: "logout"
         }),
-        
+        addMenuCart(){
+            document.body.classList.add("no-scroll");
+            this.modalCartActive=true;  
+        },
         changeModalActiveLogin(){
             this.modalActive = true;
             this.isLogin = true;
@@ -66,6 +78,10 @@ export default {
         changeModalActiveRegister(){
             this.modalActive = true;
             this.isLogin = false;
+        },
+        closeCart(){
+            document.body.classList.remove("no-scroll");
+            this.modalCartActive=false; 
         },
         closeModal() {
             this.modalActive = false;

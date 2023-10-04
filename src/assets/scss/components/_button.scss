@@ -51,6 +51,20 @@ button[class*="--small"]{
     color: var(--color__text);
     font-weight: 550;
 }
+.button[class*="--text"] {
+    color: var(--color__secondary);
+    font-weight: 550;
+    background: none;
+    border: none;
+    width:fit-content;
+}
+.button[class*="--text--white"] {
+    color: var(--color__text);
+    font-weight: 550;
+    background: none;
+    border: none;
+    width:fit-content;
+}
 .button[class*="--primary"] {
     background-color: var(--color__primary);
     color: var(--color__text--bg_dark);

@@ -32,7 +32,54 @@ const routes = [
         path:"/createCourse/:id", 
         name:"CreateCourse", 
         component: () => import('../views/CreateCourse.vue'),
-        meta: { requiresAuth: true, requiresAdmin: false , bodyClass: 'gradient--secondary'}
+        meta: { requiresAuth: true, requiresAdmin: false , bodyClass: 'gradient--secondary'},
+        children: [
+            { 
+                path: 'goals', 
+                name: 'Goals', 
+                component: () => import('../views/CreateCourse/Goals.vue'),
+            },
+            { 
+                path: 'course-structure', 
+                name: 'CourseStructure', 
+                component: () => import('../views/CreateCourse/CourseStructure.vue'),
+            },
+            { 
+                path: 'setup', 
+                name: 'Setup', 
+                component: () => import('../views/CreateCourse/Setup.vue'),
+            },
+            { 
+                path: 'film', 
+                name: 'Film', 
+                component: () => import('../views/CreateCourse/Film.vue'),
+            },
+            { 
+                path: 'curriculum', 
+                name: 'Curriculum', 
+                component: () => import('../views/CreateCourse/Curriculum.vue'),
+            },
+            { 
+                path: 'basics', 
+                name: 'Basics', 
+                component: () => import('../views/CreateCourse/Basics.vue'),
+            },
+            { 
+                path: 'curriculum', 
+                name: 'Curriculum', 
+                component: () => import('../views/CreateCourse/Curriculum.vue'),
+            },
+            { 
+                path: 'pricing', 
+                name: 'pricing', 
+                component: () => import('../views/CreateCourse/Pricing.vue'),
+            },
+            { 
+                path: 'messages', 
+                name: 'messages', 
+                component: () => import('../views/CreateCourse/Messages.vue'),
+            },
+        ],
     },
     {path:"/loginRegister", name:"LoginRegister", component: () => import('../views/LoginRegister.vue')},
     {

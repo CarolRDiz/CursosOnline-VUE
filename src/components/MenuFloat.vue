@@ -1,7 +1,7 @@
 <template>
     <div class="menu-float">
         <div class="inner">
-            <div class="menu-float__wrapper">
+            <!-- <div class="menu-float__wrapper">
                 
                 <div class="menu-float__layout menu-float__layout--secondary">
                     <div class="menu-float__content">
@@ -30,7 +30,7 @@
                     </div>    
                 </div>
                
-            </div>
+            </div> -->
             <a href="#trailer" class="bt-nav button button--white"><IconArrowUp/></a>
         </div>
     </div>

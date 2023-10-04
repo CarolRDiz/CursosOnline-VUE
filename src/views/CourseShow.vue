@@ -215,9 +215,10 @@ export default {
                                 </svg>
                                 <strong>Nivel: </strong><span>{{ course.level }}</span>
                             </li>
-
-
                         </ul>
+                        <button class="button button--secondary--large" @click="addMenuCart()">
+                            Comprar
+                        </button>
                     </div>
 
 
